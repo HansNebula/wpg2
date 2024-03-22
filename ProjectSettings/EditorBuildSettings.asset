@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 859b6153686c6e44086a513d4b8507d5
+  - enabled: 1
+    path: Assets/Scenes/SceneMeja.unity
+    guid: f9e1315bb0fc0b24b8b62999fe440e3b
+  - enabled: 1
+    path: Assets/Scenes/kantor.unity
+    guid: 07f1270c24361c346853474849df47d6
+  - enabled: 1
+    path: Assets/Scenes/MejaSihir.unity
+    guid: 3a71ab1d307e50844ad4ab64cfd7c744
   m_configObjects: {}

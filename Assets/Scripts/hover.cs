@@ -6,16 +6,27 @@ using UnityEngine.UI;
 public class hover : MonoBehaviour
 {
    public GameObject opsi;
-
+   public bool isCek;
    void Start(){
-    opsi.SetActive(false);
+      opsi.SetActive(false);
+   }
+
+   void Update(){
+      isCek=gameObject.GetComponent<verify>().isCek;
+      if(isCek) opsi.SetActive(false);
    }
 
    void OnMouseOver(){
-    opsi.SetActive(true);
+      if(!isCek)
+         opsi.SetActive(true);
    }
 
    void OnMouseExit(){
-    opsi.SetActive(false);
+      if(!isCek)
+         opsi.SetActive(false);
+   }
+
+   public void cek(){
+      print("cek");
    }
 }

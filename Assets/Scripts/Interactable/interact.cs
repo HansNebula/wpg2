@@ -52,7 +52,7 @@ public class interact : MonoBehaviour
     }
 
     void doSomething(){
-        bool El=handler.GetComponent<handler>().isElecticOn1;
+        // bool El=handler.GetComponent<handler>().isElecticOn1;
         compas.SetActive(handler.GetComponent<handler>().isDesk);
         seacrh.SetActive(handler.GetComponent<handler>().isDesk);
         if(Input.GetKey(interactKey)){

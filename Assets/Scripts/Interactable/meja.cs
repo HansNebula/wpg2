@@ -1,30 +1,28 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class Navigation : MonoBehaviour
+public class meja : MonoBehaviour
 {
     public GameObject handler;
     public GameObject player;
-    public KeyCode interact;
+    public KeyCode interactKey;
 
-    public GameObject int_button_i, int_button_e;
-    public GameObject progressBar;
-
+    public GameObject int_button_e;
+  
     public bool isCollide=false;
     public bool isDoing;
+
+    public string namaScene;
+
+  
     
-    // stuff
-    public float currentDegree;
-
-    public GameObject compas;
-
     void Start(){
         handler=GameObject.FindGameObjectWithTag("GameController");
-        int_button_i.SetActive(false);
+        // int_button_i.SetActive(false);
         int_button_e.SetActive(false);
-        compas.SetActive(false);
     }
 
     void Update(){
@@ -35,47 +33,53 @@ public class Navigation : MonoBehaviour
 
     void appear(){
         if(isCollide && !isDoing){
-            if(interact==KeyCode.I){
-                int_button_i.SetActive(true);
+            if(interactKey==KeyCode.I){
+                // int_button_i.SetActive(true);
             }
-            if(interact==KeyCode.E){
+            if(interactKey==KeyCode.E){
                 int_button_e.SetActive(true);
             }
         }else {
-            int_button_i.SetActive(false);
+            // int_button_i.SetActive(false);
             int_button_e.SetActive(false);
         }
 
     }
 
     void doSomething(){
-        currentDegree=handler.GetComponent<handler>().randRotate;
-        if(Input.GetKey(interact)){
+       
+       
+        if(Input.GetKey(interactKey)){
             isDoing=true;
-        }else if(Input.GetKeyUp(interact)){
+            handler.GetComponent<handler>().isDesk=true;
+            SceneManager.LoadScene(namaScene);
+           
+        }else if(Input.GetKeyUp(interactKey)){
+            
+        }
+        else{
             isDoing=false;
-            compas.SetActive(false);
         }
     }
 
     void spesial(){
         if(isDoing){
-            compas.SetActive(true);
-            compas.GetComponent<Transform>().eulerAngles=new Vector3(0,0,-currentDegree);
+           
         }
+       
     }
     
     void OnTriggerEnter2D(Collider2D collision){
         if(collision.CompareTag("Player")){
            isCollide=true;
-           interact=collision.GetComponent<Player>().interactKey;
+           interactKey=collision.GetComponent<Player>().interactKey;
         }
     }
     
     void OnTriggerExit2D(Collider2D collision){
         if(collision.CompareTag("Player")){
            isCollide=false;
-           interact=KeyCode.None;
+           interactKey=KeyCode.None;
         }
     }
 }
