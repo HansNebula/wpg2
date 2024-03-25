@@ -66,16 +66,17 @@ public class Player : MonoBehaviour
                 }
                 Vector2 movement = new Vector2(horizontalInput, 0);
                 rb.velocity = new Vector2(movement.x * moveSpeed, rb.velocity.y);
-
-                if(rb.velocity.x==0){
-                    anim.SetFloat("xVelocity", 0f);
-                }else{
-                    anim.SetFloat("xVelocity", 1f);
-                }
-                // Jumping
-                if(Input.GetKeyDown(jumpKey)){
-                    // print("s");
-                    rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                if(anim.runtimeAnimatorController != null){
+                    if(rb.velocity.x==0){
+                        anim.SetFloat("xVelocity", 0f);
+                    }else{
+                        anim.SetFloat("xVelocity", 1f);
+                    }
+                    // Jumping
+                    if(Input.GetKeyDown(jumpKey)){
+                        // print("s");
+                        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                    }
                 }
             }
         }
