@@ -8,6 +8,12 @@ public class peta : MonoBehaviour
    public GameObject mainMap;
    public GameObject[] subMap;
 
+   void Start(){
+      mainMap.SetActive(false);
+      for(int i=0;i<subMap.Length;i++){
+         subMap[i].SetActive(false);
+      }
+   }
    public void showMain(){
     mainMap.SetActive(true);
    }
