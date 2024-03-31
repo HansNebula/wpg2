@@ -19,14 +19,20 @@ public class peta : MonoBehaviour
    }
 
    public void showSubMap(int n){
-    subMap[n].SetActive(true);
+      subMap[n].SetActive(true);
+      for(int i=0;i<subMap.Length;i++){
+         if(i!=n)
+            subMap[i].SetActive(false);
+      }
    }
 
    public void hideMain(){
     mainMap.SetActive(false);
    }
 
-   public void hideSubMap(int n){
-    subMap[n].SetActive(false);
+   public void hideSubMap(){
+      for(int i=0;i<subMap.Length;i++){
+         subMap[i].SetActive(false);
+      }
    }
 }

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - box
   - Ladder
+  - npc
+  - dialogBox
   layers:
   - Default
   - TransparentFX

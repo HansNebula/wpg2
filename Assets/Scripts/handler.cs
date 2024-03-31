@@ -6,8 +6,11 @@ using UnityEngine.UI;
 public class handler : MonoBehaviour
 {
     public bool isDesk;
-    
+    public GameObject canvasContent;
 
+    void Start(){
+        canvasContent.SetActive(true);
+    }
     public void forDesk(){
         isDesk=false;
     }

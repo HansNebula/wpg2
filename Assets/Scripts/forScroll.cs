@@ -40,9 +40,11 @@ public class forScroll : MonoBehaviour
     }
     public void tolak(){
         gameObject.GetComponent<count>().tolak+=1;
+        gameObject.GetComponent<count>().terhitung+=1;
         upSroll();
     }
     public void acc(){
+        gameObject.GetComponent<count>().terhitung+=1;
         gameObject.GetComponent<count>().acc+=1;
         upSroll();
     }

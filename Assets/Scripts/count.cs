@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class count : MonoBehaviour
 {
-    public int acc, tolak;
+    public int acc, tolak, terhitung;
 }
