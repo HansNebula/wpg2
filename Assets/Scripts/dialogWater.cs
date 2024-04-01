@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class dialogVoga : MonoBehaviour
+public class dialogWater : MonoBehaviour
 {
-    public GameObject dialogBox, handler;
+    public GameObject dialogBox;
     public Text nametag, dialogText;
     public GameObject opsi1, opsi2;
     string[] greetings=new string[]{
-        "Saya Orchirus Voragoths dari Distrik Shadowgale di daerah Glomynesia dan menjadi perwakilan atas Yayasan Amal Voragoraths",
-        "Saya ingin mengajukan Scroll Proposal untuk pendanaan, saya berharap Proposal saya bisa diterima"
+        "Selamat siang tuan Elio dan nona Aira yang terhormat, saya adalah perwakilan dari Seabearer Waterion Alliance, Vierro Waterion",
+        "Kerajaan Maginesia pasti sudah sering mendengar tentang perusahaan kami yang menciptakan kapal kapal hebat yang sudah mengarungi banyak samudra",
+        "Disini perusahaan kami membutuhkan pendanaan untuk membuat sebuah mahakarya, jadi izinkan saya mengajukan Scroll Proposal ini"
     };
     string[] kop=new string[]{
-        "Apakah ada kesalahan di Kop Scroll Proposal ini?",
-        "Hmmm Maaf, tapi kurasa tidak ada yang salah disini"
+        "Alamat ini sudah pasti sesuai dan tidak mungkin salah, karena saya adalah salah satu direktur di perusahaan ini.",
+        "Jadi sepertinya tidak ada kesalahan disini"
     };
 
     string[] lb=new string[]{
@@ -49,8 +50,7 @@ public class dialogVoga : MonoBehaviour
     }
     void Update(){
         dialogManual();
-        nametag.text="Orchirus Voragoths";
-        handler=GameObject.FindGameObjectWithTag("GameController");
+        nametag.text="Vierro Waterion";
     }
 
     void dialogManual(){
@@ -150,7 +150,6 @@ public class dialogVoga : MonoBehaviour
             case 20 : //jika proposal DITERIMA
                 if(m==1){
                     n=90;
-                    handler.GetComponent<moveToScene>().pindah("Cutscene");
                 }else{
                     dialogBox.SetActive(true);
                     dialogText.text=decision[0];
@@ -159,7 +158,6 @@ public class dialogVoga : MonoBehaviour
             case 30 : //jika proposal TIDAK DITERIMA
                 if(m==1){
                     n=90;
-                    handler.GetComponent<moveToScene>().pindah("Cutscene");
                 }else{
                     dialogBox.SetActive(true);
                     dialogText.text=decision[1];

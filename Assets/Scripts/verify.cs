@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class verify : MonoBehaviour
 {
-   public bool isCek, formal, isTanya;
+   public bool isCek, formal, isTanya, isValid;
    public GameObject handler, tombolTanya;
     
     void Start(){
@@ -15,6 +15,7 @@ public class verify : MonoBehaviour
         Tombtanya();
     }
     public void valid(){
+        isValid=true;
         handler.GetComponent<forScroll>().presentase+=25;
         isCek=true;
     }
@@ -23,6 +24,7 @@ public class verify : MonoBehaviour
         handler.GetComponent<forScroll>().upSroll();
     }
     public void tidakValid(){
+        isValid=false;
         handler.GetComponent<forScroll>().presentase+=0;
         isCek=true;
     }
