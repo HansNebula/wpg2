@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class getNPC : MonoBehaviour
 {
-   public GameObject npc;
+   public GameObject npc, handler;
    public int id;
    void Update(){
+    handler=GameObject.FindGameObjectWithTag("GameController");
     npc=GameObject.FindGameObjectWithTag("npc");
     id=npc.GetComponent<npcID>().id;
+    // handler.GetComponent<globalEvent>().currentId=id;
    }
     public void nextDialog(){
         id=npc.GetComponent<npcID>().id;

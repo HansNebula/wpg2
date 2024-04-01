@@ -537,6 +537,7 @@ GameObject:
   m_Component:
   - component: {fileID: 778008580}
   - component: {fileID: 778008579}
+  - component: {fileID: 778008581}
   m_Layer: 0
   m_Name: handler
   m_TagString: GameController
@@ -551,12 +552,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 778008578}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f49a853c58f8be42394d9b51e6e9422b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isDesk: 0
+  canvasContent: {fileID: 0}
 --- !u!4 &778008580
 Transform:
   m_ObjectHideFlags: 0
@@ -571,6 +573,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &778008581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778008578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b3eaa88b103a2d49b4943209d5dc4b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentId: 0
+  global_id: 0
+  kop: 0
+  kop_valid: 0
+  kop_asked: 0
+  lb: 0
+  lb_valid: 0
+  lb_asked: 0
+  dana: 0
+  dana_valid: 0
+  dana_asked: 0
+  stempel: 0
+  stempel_valid: 0
+  stempel_asked: 0
 --- !u!1 &967638093
 GameObject:
   m_ObjectHideFlags: 0

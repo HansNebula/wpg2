@@ -25,6 +25,8 @@ public class forScroll : MonoBehaviour
         changeProp();
         getnpc=GetComponent<getNPC>();
         handler=GameObject.FindGameObjectWithTag("GameController");
+        id=PlayerPrefs.GetInt("global_id");
+        StoreData();
     }
 
     void changeProp(){
@@ -54,11 +56,24 @@ public class forScroll : MonoBehaviour
     public void tolak(){
         gameObject.GetComponent<count>().tolak+=1;
         gameObject.GetComponent<count>().terhitung+=1;
+        handler.GetComponent<globalEvent>().voga_.check=true;
+        if(id==1){
+            handler.GetComponent<globalEvent>().voga_.diterima=false;
+        }else if(id==2){
+            handler.GetComponent<globalEvent>().waterion_.diterima=false;
+        }
         upSroll();
     }
     public void acc(){
         gameObject.GetComponent<count>().terhitung+=1;
         gameObject.GetComponent<count>().acc+=1;
+
+        handler.GetComponent<globalEvent>().voga_.check=true;
+        if(id==1){
+            handler.GetComponent<globalEvent>().voga_.diterima=true;
+        }else if(id==2){
+            handler.GetComponent<globalEvent>().waterion_.diterima=true;
+        }
         upSroll();
     }
 
@@ -66,39 +81,81 @@ public class forScroll : MonoBehaviour
     void StoreData(){
         switch(id){
             case 1 ://voga
-                if(cp[0]){//kop
-                    handler.GetComponent<globalEvent>().voga_.kop.valid=handler.GetComponent<verify>().isValid;
+                if(kop.GetComponent<verify>().isCek){//kop
+                    handler.GetComponent<globalEvent>().voga_.kop.valid=kop.GetComponent<verify>().isValid;
                     handler.GetComponent<globalEvent>().voga_.kop.sudah=true;
                 }
-                if(cp[1]){//lb
-                    handler.GetComponent<globalEvent>().voga_.lb.valid=handler.GetComponent<verify>().isValid;
+                if(latarBelakang.GetComponent<verify>().isCek){//lb
+                    handler.GetComponent<globalEvent>().voga_.lb.valid=latarBelakang.GetComponent<verify>().isValid;
                     handler.GetComponent<globalEvent>().voga_.lb.sudah=true;
                 }
-                if(cp[2]){//dana
-                    handler.GetComponent<globalEvent>().voga_.dana.valid=handler.GetComponent<verify>().isValid;
+                if(dana.GetComponent<verify>().isCek){//dana
+                    handler.GetComponent<globalEvent>().voga_.dana.valid=dana.GetComponent<verify>().isValid;
                     handler.GetComponent<globalEvent>().voga_.dana.sudah=true;
                 }
-                if(cp[3]){//stempel
-                    handler.GetComponent<globalEvent>().voga_.stempel.valid=handler.GetComponent<verify>().isValid;
+                if(instansi.GetComponent<verify>().isCek){//stempel
+                    handler.GetComponent<globalEvent>().voga_.stempel.valid=instansi.GetComponent<verify>().isValid;
                     handler.GetComponent<globalEvent>().voga_.stempel.sudah=true;
                 }
                 break;
             case 2 ://waterion
-                if(cp[0]){//kop
-                    handler.GetComponent<globalEvent>().waterion_.kop.valid=handler.GetComponent<verify>().isValid;
+                if(kop.GetComponent<verify>().isCek){//kop
+                    handler.GetComponent<globalEvent>().waterion_.kop.valid=kop.GetComponent<verify>().isValid;
                     handler.GetComponent<globalEvent>().waterion_.kop.sudah=true;
                 }
-                if(cp[1]){//lb
-                    handler.GetComponent<globalEvent>().waterion_.lb.valid=handler.GetComponent<verify>().isValid;
+                if(latarBelakang.GetComponent<verify>().isCek){//lb
+                    handler.GetComponent<globalEvent>().waterion_.lb.valid=latarBelakang.GetComponent<verify>().isValid;
                     handler.GetComponent<globalEvent>().waterion_.lb.sudah=true;
                 }
-                if(cp[2]){//dana
-                    handler.GetComponent<globalEvent>().waterion_.dana.valid=handler.GetComponent<verify>().isValid;
+                if(dana.GetComponent<verify>().isCek){//dana
+                    handler.GetComponent<globalEvent>().waterion_.dana.valid=dana.GetComponent<verify>().isValid;
                     handler.GetComponent<globalEvent>().waterion_.dana.sudah=true;
                 }
-                if(cp[3]){//stempel
-                    handler.GetComponent<globalEvent>().waterion_.stempel.valid=handler.GetComponent<verify>().isValid;
+                if(instansi.GetComponent<verify>().isCek){//stempel
+                    handler.GetComponent<globalEvent>().waterion_.stempel.valid=instansi.GetComponent<verify>().isValid;
                     handler.GetComponent<globalEvent>().waterion_.stempel.sudah=true;
+                }
+                break;
+        }
+        
+    }
+
+    void LoadData(){
+        switch(id){
+            case 1 ://voga
+                if(handler.GetComponent<globalEvent>().voga_.kop.sudah){//kop
+                    handler.GetComponent<globalEvent>().voga_.kop.valid=kop.GetComponent<verify>().isValid;
+                    kop.GetComponent<verify>().isCek=true;
+                }
+                if(handler.GetComponent<globalEvent>().voga_.lb.sudah){//lb
+                    handler.GetComponent<globalEvent>().voga_.lb.valid=latarBelakang.GetComponent<verify>().isValid;
+                    latarBelakang.GetComponent<verify>().isCek=true;
+                }
+                if(handler.GetComponent<globalEvent>().voga_.dana.sudah){//dana
+                    handler.GetComponent<globalEvent>().voga_.dana.valid=dana.GetComponent<verify>().isValid;
+                    dana.GetComponent<verify>().isCek=true;
+                }
+                if(handler.GetComponent<globalEvent>().voga_.stempel.sudah){//stempel
+                    handler.GetComponent<globalEvent>().voga_.stempel.valid=instansi.GetComponent<verify>().isValid;
+                    instansi.GetComponent<verify>().isCek=true;
+                }
+                break;
+            case 2 ://waterion
+                if(handler.GetComponent<globalEvent>().waterion_.kop.sudah){//kop
+                    handler.GetComponent<globalEvent>().waterion_.kop.valid=kop.GetComponent<verify>().isValid;
+                    kop.GetComponent<verify>().isCek=true;
+                }
+                if(handler.GetComponent<globalEvent>().waterion_.lb.sudah){//lb
+                    handler.GetComponent<globalEvent>().waterion_.lb.valid=latarBelakang.GetComponent<verify>().isValid;
+                    latarBelakang.GetComponent<verify>().isCek=true;
+                }
+                if(handler.GetComponent<globalEvent>().waterion_.dana.sudah){//dana
+                    handler.GetComponent<globalEvent>().waterion_.dana.valid=dana.GetComponent<verify>().isValid;
+                    dana.GetComponent<verify>().isCek=true;
+                }
+                if(handler.GetComponent<globalEvent>().waterion_.stempel.sudah){//stempel
+                    handler.GetComponent<globalEvent>().waterion_.stempel.valid=instansi.GetComponent<verify>().isValid;
+                    instansi.GetComponent<verify>().isCek=true;
                 }
                 break;
         }
