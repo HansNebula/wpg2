@@ -28,10 +28,8 @@ public class globalEvent : MonoBehaviour
     public bool stempel, stempel_valid, stempel_asked;
 
     void Start(){
-        
         LoadData();
         currentId=global_id;
-        
     }
 
     void Update(){
@@ -65,6 +63,11 @@ public class globalEvent : MonoBehaviour
         stempel         = currentNpc.stempel.sudah;
         stempel_valid   = currentNpc.stempel.valid;
         stempel_asked   = currentNpc.stempel.asked;
+
+        if(Input.GetKeyDown(KeyCode.R)){
+            ResetData();
+            LoadData();
+        }
     }
 
     public void StoreData(){
@@ -202,7 +205,7 @@ public class globalEvent : MonoBehaviour
         
         //============      waterion       ================================================================
             //id
-            PlayerPrefs.SetInt("waterion_id", 1);
+            PlayerPrefs.SetInt("waterion_id", 2);
             //kop
             PlayerPrefs.SetInt("waterion_kop_cek", 0);
             PlayerPrefs.SetInt("waterion_kop_valid", 0);

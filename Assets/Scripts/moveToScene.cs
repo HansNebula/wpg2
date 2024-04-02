@@ -11,4 +11,8 @@ public class moveToScene : MonoBehaviour
    public void pindah(string namaScene){
         SceneManager.LoadScene(namaScene);
    }
+
+   public void quit(){
+     Application.Quit();
+   }
 }
