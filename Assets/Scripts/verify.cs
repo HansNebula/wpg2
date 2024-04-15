@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class verify : MonoBehaviour
 {
    public bool isCek, formal, isTanya, isValid;
-   public GameObject handler, tombolTanya;
+   public GameObject handler, tombolTanya, mark;
     
     void Start(){
         handler=GameObject.FindGameObjectWithTag("GameController");
@@ -15,6 +15,7 @@ public class verify : MonoBehaviour
         Tombtanya();
     }
     public void valid(){
+        getMark("yes");
         isValid=true;
         handler.GetComponent<forScroll>().presentase+=25;
         isCek=true;
@@ -24,6 +25,7 @@ public class verify : MonoBehaviour
         handler.GetComponent<forScroll>().upSroll();
     }
     public void tidakValid(){
+        getMark("no");
         isValid=false;
         handler.GetComponent<forScroll>().presentase+=0;
         isCek=true;
@@ -39,5 +41,10 @@ public class verify : MonoBehaviour
             tombolTanya.SetActive(false);
         }
 
+    }
+
+    void getMark(string nama){
+        Transform markChild=mark.transform.Find(nama);
+        markChild.gameObject.SetActive(true);
     }
 }

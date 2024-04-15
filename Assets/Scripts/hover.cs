@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class hover : MonoBehaviour
 {
-   public GameObject opsi;
+   public GameObject opsi, label;
    public bool isCek;
    void Start(){
       opsi.SetActive(false);
+      label.SetActive(false);
    }
 
    void Update(){
@@ -17,12 +18,14 @@ public class hover : MonoBehaviour
    }
 
    void OnMouseOver(){
+      label.SetActive(true);
       if(!isCek)
          opsi.SetActive(true);
    }
 
    void OnMouseExit(){
       if(!isCek)
+         label.SetActive(false);
          opsi.SetActive(false);
    }
 

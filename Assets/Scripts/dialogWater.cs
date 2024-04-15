@@ -19,9 +19,13 @@ public class dialogWater : MonoBehaviour
     };
 
     string[] lb=new string[]{
-        "Ketika warga desa Swampea sedang terlelap, Monster rawa bernama Murk Mauler menyerang desa itu. banyak orang dewasa tewas karena insiden itu, dan membuat para anak anak disana menjadi terlantar",
-        "Sekitar 2 atau 3 hari lalu, maka dari itu saya sesegera mungkin mencari bantuan dana untuk membantu anak anak disana",
-        "Para Orc sudah menyegel Murk Mauler lebih dari 25 tahun, sepertinya ada oknum yang merusak segel itu dan sengaja membebaskannya"
+        "Dalam catatan sejarah, belum pernah ada satupun orang yang dapat menaklukan Perairan Coralstorm lalu menemukan tentang legenda lautan Everblue...",
+        "Maka dari itu saya sangat ingin membuat sebuah kapal yang dapat mewujudkan mimpi itu dan mengungkap misteri yang ada",
+
+        "Tentu saja, jika Perairan Coralstorm bisa ditaklukan maka pihak maritim bisa segera meneliti dan mengambil sumber daya alam yang ada disana. ",
+        "Hal itu mungkin akan sangat menguntungkan bagi banyak pihak saya rasa...",
+
+        "Selain itu mungkin hanyalah bahaya sepele untuk kapal semegah dan sehebat ‘Stultivera Navis’ hahaha, Tuan Elio tidak perlu khawatir"
     };
     string[] dana=new string[]{
         "Dengan Batuan Darkhold, dibutuhkan untuk perlindungan bangunan dan orang didalamnya, kayu firefly digunakan karena aura hangat yang dipancarkan sangat diperlukan karena daerah dekat rawa sangat dingin",
@@ -76,10 +80,10 @@ public class dialogWater : MonoBehaviour
                 }
                 break;
             case 3 : //jika ditanya laterbelakang
-                if(m==0){
+                if(m<2){
                     dialogBox.SetActive(true);
                     dialogText.text=lb[0];
-                }else if(m==1){
+                }else{
                     dialogBox.SetActive(false);
                     opsi1.SetActive(true);
                     // jika bertanya kapan maka ke case 6
@@ -102,10 +106,11 @@ public class dialogWater : MonoBehaviour
                 break;
             case 6 : //lanjutan case 3 (kapan)
                 opsi1.SetActive(false);
-                if(m==0){
+                m=2;
+                if(m<4){
                     dialogBox.SetActive(true);
                     dialogText.text=lb[1];
-                }else if(m==1){
+                }else {
                     dialogBox.SetActive(false);
                 }
                 break;
