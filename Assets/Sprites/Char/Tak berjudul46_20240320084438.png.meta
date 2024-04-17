@@ -105,12 +105,12 @@ TextureImporter:
       name: Tak berjudul46_20240320084438_1
       rect:
         serializedVersion: 2
-        x: 292
+        x: 184
         y: 327
-        width: 613
+        width: 721
         height: 1159
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

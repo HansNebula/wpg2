@@ -12,6 +12,7 @@ public class cari : MonoBehaviour
 
     void Start(){
         insertGameobject();
+        hide();
     }
     void Update(){
         // select();
@@ -35,12 +36,18 @@ public class cari : MonoBehaviour
             if(inCari.text==""){
                 content[i].SetActive(false);
             }else{
-                if(content[i].GetComponentInChildren<Text>().text.ToLower().Contains(Tcari)){
+                if(/*content[i].GetComponentInChildren<tag>().tags.ToLower().Contains(Tcari) ||*/ content[i].GetComponentInChildren<tag>().tags.ToLower() == Tcari){
                     content[i].SetActive(true);
                 }else{
                     content[i].SetActive(false);
                 }
             }
+        }
+    }
+
+    void hide(){
+        for(int i=0;i<content.Length;i++){
+            content[i].SetActive(false);
         }
     }
 }
