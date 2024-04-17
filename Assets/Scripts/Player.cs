@@ -40,12 +40,22 @@ public class Player : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().gravityScale=gravity;
         scale=playerTransform.localScale;
         anim=gameObject.GetComponent<Animator>();
+        
+        // Retrieve the saved position from PlayerPrefs
+        float savedPosX = PlayerPrefs.GetFloat("posX");
+        float savedPosY = PlayerPrefs.GetFloat("posY");
+        
+        // Create a new Vector3 with the saved position
+        Vector3 newPosition = new Vector3(savedPosX, savedPosY, playerTransform.position.z);
+        
+        // Assign the new position to the Transform.position
+        playerTransform.position = newPosition;
     }
 
     void Update(){
         move();
         climb();
-
+        StorePos();
     }
     
     void move(){
@@ -128,6 +138,14 @@ public class Player : MonoBehaviour
             isLadder=false;
             gameObject.GetComponent<Rigidbody2D>().gravityScale=gravity;
             // isClimbing=false;
+        }
+    }
+
+
+    void StorePos(){
+        if(Input.GetKey(KeyCode.E)){
+            PlayerPrefs.SetFloat("posY", GetComponent<Transform>().position.y);
+            PlayerPrefs.SetFloat("posX", GetComponent<Transform>().position.x);
         }
     }
 }

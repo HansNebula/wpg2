@@ -19,6 +19,7 @@ public struct npc{
 public class globalEvent : MonoBehaviour
 {
     //==== global =====
+    public Vector3 pos;
     public bool visited;
     public int global_id;
     //=================
@@ -35,6 +36,10 @@ public class globalEvent : MonoBehaviour
         LoadData();
         currentId=global_id;
     }
+    void Awake(){
+        PlayerPrefs.SetInt("visited", 1);
+        LoadData();
+    }
 
     void Update(){
         voga_.id=1;
@@ -44,7 +49,7 @@ public class globalEvent : MonoBehaviour
         }else if(global_id==2){
             currentNpc=waterion_;
         }
-        LoadData();
+        // LoadData();
         debug();
         // print(voga_.id);
         // print(currentNpc.id);

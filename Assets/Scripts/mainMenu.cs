@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class mainMenu : MonoBehaviour
 {
-    void Start(){
-        ResetGlobal();
+    void Awake(){
+        gameObject.GetComponent<globalEvent>().ResetData();
+        // ResetGlobal();
         Debug.Log("reset");
     }
 
