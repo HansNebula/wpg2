@@ -18,10 +18,14 @@ public struct npc{
 };
 public class globalEvent : MonoBehaviour
 {
+    //==== global =====
+    public bool visited;
+    public int global_id;
+    //=================
     public npc voga_;
     public npc waterion_;
     public npc currentNpc;
-    public int currentId, global_id;
+    public int currentId;
     public bool kop, kop_valid, kop_asked;
     public bool lb, lb_valid, lb_asked;
     public bool dana, dana_valid, dana_asked;
@@ -40,6 +44,7 @@ public class globalEvent : MonoBehaviour
         }else if(global_id==2){
             currentNpc=waterion_;
         }
+        LoadData();
         debug();
         // print(voga_.id);
         // print(currentNpc.id);
@@ -72,6 +77,7 @@ public class globalEvent : MonoBehaviour
 
     public void StoreData(){
         //===== global =====
+            PlayerPrefs.SetInt("visited", visited ? 1 : 0);
             PlayerPrefs.SetInt("global_id", global_id);
         //============      voga        ================================================================
             //id
@@ -125,6 +131,7 @@ public class globalEvent : MonoBehaviour
 
     public void LoadData(){
         //===== global =====
+            visited = PlayerPrefs.GetInt("visited")==1;
             global_id=PlayerPrefs.GetInt("global_id"); 
         //============      voga        ================================================================
             //id
@@ -178,6 +185,7 @@ public class globalEvent : MonoBehaviour
 
     public void ResetData(){
         //===== global =====
+            PlayerPrefs.SetInt("visited", 0);
             PlayerPrefs.SetInt("global_id", 1);
         //============      voga        ================================================================
             //id
@@ -229,9 +237,11 @@ public class globalEvent : MonoBehaviour
     }
 
     public void setGlobalId(){
-        global_id+=1;
+        global_id=1;
     } 
 
-
+    public void visiting(){
+        PlayerPrefs.SetInt("visited", 1);
+    }
 
 }
