@@ -19,7 +19,7 @@ public struct npc{
 public class globalEvent : MonoBehaviour
 {
     //==== global =====
-    public Vector3 pos;
+    public float audio, music;
     public bool visited;
     public int global_id;
     //=================
@@ -192,6 +192,10 @@ public class globalEvent : MonoBehaviour
         //===== global =====
             PlayerPrefs.SetInt("visited", 0);
             PlayerPrefs.SetInt("global_id", 1);
+
+            //posisi
+            PlayerPrefs.DeleteKey("posX");
+            PlayerPrefs.DeleteKey("posY");
         //============      voga        ================================================================
             //id
             PlayerPrefs.SetInt("voga_id", 1);
@@ -249,4 +253,8 @@ public class globalEvent : MonoBehaviour
         PlayerPrefs.SetInt("visited", 1);
     }
 
+    public void setPlayerPos(){
+        PlayerPrefs.SetFloat("posX", 8.857599f);
+        PlayerPrefs.SetFloat("posY", 0.09315658f);
+    }
 }
