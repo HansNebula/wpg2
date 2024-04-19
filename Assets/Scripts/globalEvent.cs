@@ -15,11 +15,14 @@ public struct npc{
     public ver stempel;
     public bool diterima;
     public bool check;
+    public bool conv;
+    public int presentase;
 };
 public class globalEvent : MonoBehaviour
 {
     //==== global =====
     public float audio, music;
+    public GameObject pointerWand;
     public bool visited;
     public int global_id;
     //=================
@@ -103,6 +106,10 @@ public class globalEvent : MonoBehaviour
             PlayerPrefs.SetInt("voga_stempel_cek", (voga_.stempel.sudah ? 1 : 0));
             PlayerPrefs.SetInt("voga_stempel_valid", (voga_.stempel.valid ? 1 : 0));
             PlayerPrefs.SetInt("voga_stempel_tanya", (voga_.stempel.asked ? 1 : 0));
+            //cek apakah sudah membuka proposal
+            PlayerPrefs.SetInt("voga_conv", voga_.conv ? 1 : 0);
+            //persentase
+            PlayerPrefs.SetInt("voga_persentase", voga_.presentase);
             
             //bawah
             PlayerPrefs.SetInt("voga_check", (voga_.check ? 1 : 0));
@@ -127,6 +134,10 @@ public class globalEvent : MonoBehaviour
             PlayerPrefs.SetInt("waterion_stempel_cek", (waterion_.stempel.sudah ? 1 : 0));
             PlayerPrefs.SetInt("waterion_stempel_valid", (waterion_.stempel.valid ? 1 : 0));
             PlayerPrefs.SetInt("waterion_stempel_tanya", (waterion_.stempel.asked ? 1 : 0));
+            //cek apakah sudah membuka proposal
+            PlayerPrefs.SetInt("waterion_conv", waterion_.conv ? 1 : 0);
+            //persentase
+            PlayerPrefs.SetInt("waterion_persentase", waterion_.presentase);
             
             //bawah
             PlayerPrefs.SetInt("waterion_check", (waterion_.check ? 1 : 0));
@@ -157,6 +168,10 @@ public class globalEvent : MonoBehaviour
             voga_.stempel.sudah = PlayerPrefs.GetInt("voga_stempel_cek")==1;
             voga_.stempel.valid = PlayerPrefs.GetInt("voga_stempel_valid")==1;
             voga_.stempel.asked = PlayerPrefs.GetInt("voga_stempel_tanya")==1;
+            //cek prop
+            voga_.conv = PlayerPrefs.GetInt("voga_conv")==1;
+            //persentase
+            voga_.presentase = PlayerPrefs.GetInt("voga_persentase");
             
             //bawah
             voga_.check = PlayerPrefs.GetInt("voga_check")==1;
@@ -181,6 +196,10 @@ public class globalEvent : MonoBehaviour
             waterion_.stempel.sudah = PlayerPrefs.GetInt("waterion_stempel_cek")==1;
             waterion_.stempel.valid = PlayerPrefs.GetInt("waterion_stempel_valid")==1;
             waterion_.stempel.asked = PlayerPrefs.GetInt("waterion_stempel_tanya")==1;
+            //cek prop
+            waterion_.conv = PlayerPrefs.GetInt("waterion_conv")==1;
+            //persentase
+            waterion_.presentase = PlayerPrefs.GetInt("waterion_persentase");
             
             //bawah
             waterion_.check = PlayerPrefs.GetInt("waterion_check")==1;
@@ -215,6 +234,10 @@ public class globalEvent : MonoBehaviour
             PlayerPrefs.SetInt("voga_stempel_cek", 0);
             PlayerPrefs.SetInt("voga_stempel_valid", 0);
             PlayerPrefs.SetInt("voga_stempel_tanya", 0);
+            //cek apakah sudah membuka proposal
+            PlayerPrefs.SetInt("voga_conv", 0);
+            //persentase
+            PlayerPrefs.SetInt("voga_persentase", 0);
             
             //bawah
             PlayerPrefs.SetInt("voga_check", 0);
@@ -239,6 +262,10 @@ public class globalEvent : MonoBehaviour
             PlayerPrefs.SetInt("waterion_stempel_cek", 0);
             PlayerPrefs.SetInt("waterion_stempel_valid", 0);
             PlayerPrefs.SetInt("waterion_stempel_tanya", 0);
+            //cek apakah sudah membuka proposal
+            PlayerPrefs.SetInt("waterion_conv", 0);
+            //persentase
+            PlayerPrefs.SetInt("waterion_persentase", 0);
             
             //bawah
             PlayerPrefs.SetInt("waterion_check", 0);
@@ -253,8 +280,16 @@ public class globalEvent : MonoBehaviour
         PlayerPrefs.SetInt("visited", 1);
     }
 
-    public void setPlayerPos(){
-        PlayerPrefs.SetFloat("posX", 8.857599f);
-        PlayerPrefs.SetFloat("posY", 0.09315658f);
+    public void setPlayerPos(float x){
+        PlayerPrefs.SetFloat("posX", x);
+        // PlayerPrefs.SetFloat("posY", 0.09315658f);
+    }
+
+    public void openProp(){
+        if(global_id==1){
+            voga_.conv=true;
+        }else if(global_id==1){
+            waterion_.conv=true;
+        }
     }
 }

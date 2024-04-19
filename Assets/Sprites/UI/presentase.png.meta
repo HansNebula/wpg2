@@ -1,10 +1,34 @@
 fileFormatVersion: 2
-guid: 79f2ac0c4499c754ead9abeeec4de243
+guid: 65b2f9d0c3c983e4584b1c9a3e8225b9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6599392134709368347
-    second: Scroll proposal percobaan Vierro-01_0
+      213: -3606081203063610602
+    second: presentase_0
+  - first:
+      213: -7625151358508554327
+    second: presentase_1
+  - first:
+      213: -2202559749565681294
+    second: presentase_2
+  - first:
+      213: -4353006738993776474
+    second: presentase_6
+  - first:
+      213: -2606723526476776927
+    second: presentase_2
+  - first:
+      213: -2921656859756264575
+    second: presentase_5
+  - first:
+      213: -6540390143455836050
+    second: presentase_6
+  - first:
+      213: 6271245517665507106
+    second: presentase_8
+  - first:
+      213: -1585871797606364868
+    second: presentase_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -102,22 +126,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Scroll proposal percobaan Vierro-01_0
+      name: presentase_0
       rect:
         serializedVersion: 2
-        x: 58
-        y: 71
-        width: 4363
-        height: 5119
+        x: 36
+        y: 648
+        width: 919
+        height: 122
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b16dbd27e20c59b50800000000000000
-      internalID: 6599392134709368347
+      spriteID: 6132e2c6040a4fdc0800000000000000
+      internalID: -3606081203063610602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: presentase_6
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 495
+        width: 919
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a8f4612f630793c0800000000000000
+      internalID: -4353006738993776474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: presentase_2
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 349
+        width: 919
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12ab2b083ce03dbd0800000000000000
+      internalID: -2606723526476776927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: presentase_8
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 208
+        width: 919
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22796b36290f70750800000000000000
+      internalID: 6271245517665507106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: presentase_4
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 51
+        width: 919
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c39cc5c900addf9e0800000000000000
+      internalID: -1585871797606364868
       vertices: []
       indices: 
       edges: []

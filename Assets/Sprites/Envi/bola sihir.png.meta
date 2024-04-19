@@ -105,10 +105,10 @@ TextureImporter:
       name: bola sihir_0
       rect:
         serializedVersion: 2
-        x: 133
-        y: 179
-        width: 1002
-        height: 1196
+        x: 139
+        y: 101
+        width: 352
+        height: 414
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

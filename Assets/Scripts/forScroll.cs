@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class forScroll : MonoBehaviour
 {
-    public GameObject scroll, kop, latarBelakang, dana, instansi, decision;
+    public GameObject scroll, kop, latarBelakang, dana, instansi, decision, presObject, harga;
     public GameObject handler;
     public getNPC getnpc;
     public int id;
-    public Sprite[] spProp;
-    public float presentase;
+    public Sprite[] spProp, pres, hargaSp;
+    public int presentase;
     bool isMuncul;
-    public bool complete;
+    public bool complete, openProp;
 
     public bool[] cp=new bool[4];
 
@@ -26,6 +26,7 @@ public class forScroll : MonoBehaviour
         scroll.SetActive(isMuncul);
         checkingComplete();
         changeProp();
+        presentaseManager();
         id=PlayerPrefs.GetInt("global_id");
         StoreData();
         LoadData();
@@ -84,6 +85,7 @@ public class forScroll : MonoBehaviour
     void StoreData(){
         switch(id){
             case 1 ://voga
+                handler.GetComponent<globalEvent>().voga_.presentase=presentase;
                 if(kop.GetComponent<verify>().isCek){//kop
                     handler.GetComponent<globalEvent>().voga_.kop.valid=kop.GetComponent<verify>().isValid;
                     handler.GetComponent<globalEvent>().voga_.kop.sudah=true;
@@ -102,6 +104,7 @@ public class forScroll : MonoBehaviour
                 }
                 break;
             case 2 ://waterion
+                handler.GetComponent<globalEvent>().waterion_.presentase=presentase;
                 if(kop.GetComponent<verify>().isCek){//kop
                     handler.GetComponent<globalEvent>().waterion_.kop.valid=kop.GetComponent<verify>().isValid;
                     handler.GetComponent<globalEvent>().waterion_.kop.sudah=true;
@@ -126,6 +129,8 @@ public class forScroll : MonoBehaviour
     void LoadData(){
         switch(id){
             case 1 ://voga
+                presentase=handler.GetComponent<globalEvent>().voga_.presentase=presentase;
+                openProp=handler.GetComponent<globalEvent>().voga_.conv;
                 if(handler.GetComponent<globalEvent>().voga_.kop.sudah){//kop
                     kop.GetComponent<verify>().isValid = handler.GetComponent<globalEvent>().voga_.kop.valid;
                     kop.GetComponent<verify>().isCek=true;
@@ -144,6 +149,8 @@ public class forScroll : MonoBehaviour
                 }
                 break;
             case 2 ://waterion
+                openProp=handler.GetComponent<globalEvent>().waterion_.conv;
+                presentase=handler.GetComponent<globalEvent>().waterion_.presentase=presentase;
                 if(handler.GetComponent<globalEvent>().waterion_.kop.sudah){//kop
                     kop.GetComponent<verify>().isValid = handler.GetComponent<globalEvent>().waterion_.kop.valid;
                     kop.GetComponent<verify>().isCek=true;
@@ -163,5 +170,9 @@ public class forScroll : MonoBehaviour
                 break;
         }
         
+    }
+    void presentaseManager(){
+        presObject.GetComponent<SpriteRenderer>().sprite=pres[presentase/25];
+        harga.GetComponent<SpriteRenderer>().sprite=hargaSp[handler.GetComponent<globalEvent>().global_id];
     }
 }

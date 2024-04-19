@@ -41,20 +41,16 @@ public class Player : MonoBehaviour
         scale=playerTransform.localScale;
         anim=gameObject.GetComponent<Animator>();
         
-        // Retrieve the saved position from PlayerPrefs
-        float savedPosX = PlayerPrefs.GetFloat("posX");
-        float savedPosY = PlayerPrefs.GetFloat("posY");
-        
-        // Create a new Vector3 with the saved position
-        Vector3 newPosition = new Vector3(savedPosX, savedPosY, playerTransform.position.z);
-        
-        // Assign the new position to the Transform.position
-        playerTransform.position = newPosition;
+    }
+
+    void Awake(){
+       gameObject.transform.position = new Vector3(PlayerPrefs.GetFloat("posX"), -2.241536f, gameObject.transform.position.z);
     }
 
     void Update(){
+        // gameObject.transform.position = new Vector3(gameObject.transform.position.x, -2.241536f, gameObject.transform.position.z);
         move();
-        climb();
+        // climb();
         StorePos();
     }
     

@@ -49,8 +49,16 @@ public class dialogWater : MonoBehaviour
         n=1;
         // dialogBox=GameObject.FindGameObjectWithTag("dialogBox");
         dialogBox.SetActive(true);
+        openProp();
         opsi1.SetActive(false);
         opsi2.SetActive(false);
+    }
+    void openProp(){
+        if(PlayerPrefs.GetInt("water_conv")==0){
+            dialogBox.SetActive(true);
+        }else{
+            dialogBox.SetActive(false);
+        }
     }
     void Update(){
         dialogManual();

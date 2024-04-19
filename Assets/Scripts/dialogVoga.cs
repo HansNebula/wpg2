@@ -43,7 +43,7 @@ public class dialogVoga : MonoBehaviour
     void Start(){
         n=1;
         // dialogBox=GameObject.FindGameObjectWithTag("dialogBox");
-        dialogBox.SetActive(true);
+        openProp();
         opsi1.SetActive(false);
         opsi2.SetActive(false);
     }
@@ -51,6 +51,13 @@ public class dialogVoga : MonoBehaviour
         dialogManual();
         nametag.text="Orchirus Voragoths";
         handler=GameObject.FindGameObjectWithTag("GameController");
+    }
+    void openProp(){
+        if(PlayerPrefs.GetInt("voga_conv")==0){
+            dialogBox.SetActive(true);
+        }else{
+            dialogBox.SetActive(false);
+        }
     }
 
     void dialogManual(){
