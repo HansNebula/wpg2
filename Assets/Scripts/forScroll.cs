@@ -19,11 +19,11 @@ public class forScroll : MonoBehaviour
     //==========================================================================
     void Start(){
         isMuncul=false;
+        scroll.SetActive(isMuncul);
     }
     void Update(){
         handler=gameObject;
         getnpc=handler.GetComponent<getNPC>();
-        scroll.SetActive(isMuncul);
         checkingComplete();
         changeProp();
         presentaseManager();
