@@ -59,7 +59,7 @@ public class globalEvent : MonoBehaviour
         // LoadData();
         debug();
         
-        // globalPointer();
+        globalPointer();
         raycastPointer();
     }
 
@@ -300,29 +300,30 @@ public class globalEvent : MonoBehaviour
 
     public void globalPointer(){
         Cursor.visible=false;
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if(!isClickable){
             pointer.GetComponent<SpriteRenderer>().sprite=normalwand;
         }else if(isClickable){
             pointer.GetComponent<SpriteRenderer>().sprite=pointerWand;
         }
-        pointer.transform.position=mousePos;
     }
 
     public void raycastPointer(){
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0f; // Ensure the cursor stays on the 2D plane (Z = 0)
+        mousePos.z = 0f;
 
         pointer.transform.position = mousePos;
 
         RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
-        if (hit.collider != null && hit.collider.CompareTag("clickable"))
-        {
-           print("hit");
-        }
-        else
-        {
-            
+        if (hit.collider != null){
+           if(hit.collider.CompareTag("clickable")){
+                isClickable=true;
+            }else if(hit.collider.CompareTag("ButtonProp")){
+                isClickable=true;
+                // GameObject parentObject = hit.collider.gameObject.transform.parent.gameObject.transform.parent.gameObject;
+                // parentObject.GetComponent<hover>().isHovButton=true;
+            }
+        }else{
+            isClickable=false;
         }
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class hover : MonoBehaviour
 {
    public GameObject opsi, label;
-   public bool isCek;
+   public bool isCek, isHovButton;
    void Start(){
       opsi.SetActive(false);
       label.SetActive(false);
@@ -24,9 +24,8 @@ public class hover : MonoBehaviour
    }
 
    void OnMouseExit(){
-      if(!isCek)
-         label.SetActive(false);
-         opsi.SetActive(false);
+      label.SetActive(false);
+      opsi.SetActive(false);
    }
 
    public void cek(){

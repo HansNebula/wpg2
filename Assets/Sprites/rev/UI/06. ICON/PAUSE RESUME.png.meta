@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ee1ce73789a7ee540957f4446371983c
+guid: 09207c43158085e479dd773d3028c252
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8640191414418242380
-    second: chat box_0
+      213: 2338227513427887800
+    second: PAUSE RESUME_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -102,13 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chat box_0
+      name: PAUSE RESUME_0
       rect:
         serializedVersion: 2
-        x: 83
-        y: 29
-        width: 3674
-        height: 782
+        x: 103
+        y: 74
+        width: 617
+        height: 164
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -116,8 +116,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4b77cf405028e770800000000000000
-      internalID: 8640191414418242380
+      spriteID: 8b60ae5f88d037020800000000000000
+      internalID: 2338227513427887800
       vertices: []
       indices: 
       edges: []

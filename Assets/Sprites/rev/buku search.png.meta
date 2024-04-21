@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ee1ce73789a7ee540957f4446371983c
+guid: 1eff1fb9e51b22e4aba1e5b40b0b71f0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8640191414418242380
-    second: chat box_0
+      213: 285870206234152724
+    second: buku search_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -102,13 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chat box_0
+      name: buku search_0
       rect:
         serializedVersion: 2
-        x: 83
-        y: 29
-        width: 3674
-        height: 782
+        x: 60
+        y: 26
+        width: 598
+        height: 346
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -116,8 +116,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4b77cf405028e770800000000000000
-      internalID: 8640191414418242380
+      spriteID: 41f447e107d97f300800000000000000
+      internalID: 285870206234152724
       vertices: []
       indices: 
       edges: []
