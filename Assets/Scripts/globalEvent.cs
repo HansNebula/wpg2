@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public struct ver{
     public bool valid;
@@ -22,7 +23,9 @@ public class globalEvent : MonoBehaviour
 {
     //==== global =====
     public float audio, music;
-    public GameObject pointerWand;
+    public Sprite pointerWand, normalwand;
+    public GameObject pointer;
+    public bool isClickable, buttonProp;
     public bool visited;
     public int global_id;
     //=================
@@ -40,6 +43,7 @@ public class globalEvent : MonoBehaviour
         currentId=global_id;
     }
     void Awake(){
+        pointer=GameObject.FindGameObjectWithTag("pointer");
         PlayerPrefs.SetInt("visited", 1);
         LoadData();
     }
@@ -54,8 +58,9 @@ public class globalEvent : MonoBehaviour
         }
         // LoadData();
         debug();
-        // print(voga_.id);
-        // print(currentNpc.id);
+        
+        // globalPointer();
+        raycastPointer();
     }
 
     void debug(){
@@ -290,6 +295,34 @@ public class globalEvent : MonoBehaviour
             voga_.conv=true;
         }else if(global_id==1){
             waterion_.conv=true;
+        }
+    }
+
+    public void globalPointer(){
+        Cursor.visible=false;
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if(!isClickable){
+            pointer.GetComponent<SpriteRenderer>().sprite=normalwand;
+        }else if(isClickable){
+            pointer.GetComponent<SpriteRenderer>().sprite=pointerWand;
+        }
+        pointer.transform.position=mousePos;
+    }
+
+    public void raycastPointer(){
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0f; // Ensure the cursor stays on the 2D plane (Z = 0)
+
+        pointer.transform.position = mousePos;
+
+        RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
+        if (hit.collider != null && hit.collider.CompareTag("clickable"))
+        {
+           print("hit");
+        }
+        else
+        {
+            
         }
     }
 }

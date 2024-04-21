@@ -8,6 +8,8 @@ TagManager:
   - Ladder
   - npc
   - dialogBox
+  - pointer
+  - clickable
   layers:
   - Default
   - TransparentFX
@@ -62,4 +64,7 @@ TagManager:
     locked: 0
   - name: Interface
     uniqueID: 3725736143
+    locked: 0
+  - name: Pointer
+    uniqueID: 434268045
     locked: 0

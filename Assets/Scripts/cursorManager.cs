@@ -11,7 +11,10 @@ public class cursorManager : MonoBehaviour
     }
 
     void OnMouseOver(){
-        GameObject cursorMagic = handler.GetComponent<globalEvent>().pointerWand;
-        cursorMagic.SetActive(true);
+        handler.GetComponent<globalEvent>().isClickable=true;
+    }
+
+    void OnMouseExit(){
+        handler.GetComponent<globalEvent>().isClickable=false;
     }
 }
