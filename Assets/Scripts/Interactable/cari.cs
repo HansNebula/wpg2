@@ -51,9 +51,19 @@ public class cari : MonoBehaviour
         Tcari=inCari.text.ToLower();
         // print(Tcari);
         hintText.text="";
-        for(int i=0;i<content.Length;i++){
-            if(inCari.text!="" && content[i].GetComponentInChildren<tag>().tags.ToLower().Contains(Tcari)){
-                hintText.text+=content[i].GetComponentInChildren<tag>().tags + "\n";
+        foreach (var item in content){
+            var tagComponent = item.GetComponentInChildren<tag>();
+            if (tagComponent != null){
+                string itemTag = tagComponent.tags.ToLower();
+                if (!string.IsNullOrEmpty(Tcari) && itemTag.Contains(Tcari)){
+                    int matchStartIndex = itemTag.IndexOf(Tcari);
+                    int matchLength = Tcari.Length;
+                    string formattedTag = itemTag.Substring(0, matchStartIndex) +
+                                          "<b>" + itemTag.Substring(matchStartIndex, matchLength) + "</b>" +
+                                          itemTag.Substring(matchStartIndex + matchLength);
+                    
+                    hintText.text += formattedTag + "\n";
+                }
             }
         }
     }
