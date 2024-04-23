@@ -18,6 +18,9 @@ public class pauseTele : MonoBehaviour
             }else{
                 buttons[i].SetActive(true);
                 field.SetActive(true);
+                if(GetComponent<telepati>().menginformasi){
+                    dialogBox.SetActive(true);
+                }
             }
         }
     }
