@@ -7,7 +7,7 @@ public class dialogWater : MonoBehaviour
 {
     public GameObject dialogBox;
     public Text nametag, dialogText;
-    public GameObject opsi1, opsi2;
+    public GameObject opsi1, opsi2, handler;
     string[] greetings=new string[]{
         "Selamat siang tuan Elio dan nona Aira yang terhormat, saya adalah perwakilan dari Seabearer Waterion Alliance, Vierro Waterion",
         "Kerajaan Maginesia pasti sudah sering mendengar tentang perusahaan kami yang menciptakan kapal kapal hebat yang sudah mengarungi banyak samudra",
@@ -63,6 +63,7 @@ public class dialogWater : MonoBehaviour
     void Update(){
         dialogManual();
         nametag.text="Vierro Waterion";
+        handler=GameObject.FindGameObjectWithTag("GameController");
     }
 
     void dialogManual(){
@@ -163,6 +164,7 @@ public class dialogWater : MonoBehaviour
             case 20 : //jika proposal DITERIMA
                 if(m==1){
                     n=90;
+                    handler.GetComponent<moveToScene>().pindah("Cutscene");
                 }else{
                     dialogBox.SetActive(true);
                     dialogText.text=decision[0];
@@ -171,6 +173,7 @@ public class dialogWater : MonoBehaviour
             case 30 : //jika proposal TIDAK DITERIMA
                 if(m==1){
                     n=90;
+                    handler.GetComponent<moveToScene>().pindah("Cutscene");
                 }else{
                     dialogBox.SetActive(true);
                     dialogText.text=decision[1];

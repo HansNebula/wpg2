@@ -7,15 +7,17 @@ public class cari : MonoBehaviour
 {
     public InputField inCari;
     public string Tcari;
-
+    public Text hintText;
     public GameObject[] content;
 
     void Start(){
         insertGameobject();
         hide();
+        hintText.text = "";
     }
     void Update(){
         // select();
+        // hint();
     }
 
     void insertGameobject(){
@@ -40,6 +42,33 @@ public class cari : MonoBehaviour
                     content[i].SetActive(true);
                 }else{
                     content[i].SetActive(false);
+                }
+            }
+        }
+    }
+
+    public void hint(){
+        Tcari=inCari.text.ToLower();
+        // print(Tcari);
+        hintText.text="";
+        for(int i=0;i<content.Length;i++){
+            if(inCari.text!="" && content[i].GetComponentInChildren<tag>().tags.ToLower().Contains(Tcari)){
+                hintText.text+=content[i].GetComponentInChildren<tag>().tags + "\n";
+            }
+        }
+    }
+
+    public void hintByFront(){
+        Tcari=inCari.text.ToLower();
+        // print(Tcari);
+        hintText.text="";
+        foreach (var item in content){
+            var tagComponent = item.GetComponentInChildren<tag>();
+            if (tagComponent != null){
+                string itemTag = tagComponent.tags.ToLower();
+                if (!string.IsNullOrEmpty(Tcari) && itemTag.StartsWith(Tcari)){
+                    string formattedTag = "<b>" + itemTag.Substring(0, Tcari.Length) + "</b>" + itemTag.Substring(Tcari.Length);
+                    hintText.text += formattedTag + "\n";
                 }
             }
         }

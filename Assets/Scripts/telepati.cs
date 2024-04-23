@@ -19,13 +19,15 @@ public class telepati : MonoBehaviour
     };
 
     string[] aquarush=new string[]{
-        "belum",
-        "ada",
-        "dialognya"
+        "Halo, dengan saya Cicero Tidewalker, narahubung telepati Seabearer Waterion Alliance, Perusahaan kapal layar terbaik di Maginesia",
+        "Pengajuan dana untuk kapal Stultifera Navis? saya sudah lama tidak mendengar lagi tentang proyek itu, karena petinggi perusahaan menolak proyek ambisius itu",
+        "Lautan Coralstorm terlalu berbahaya, dan perlu banyak sekali persiapan untuk menaklukannya, dan lagi S. W. A. adalah perusahaan kapal layar, bukan kapal perang",
+        "Terimakasih telah menghubungi kami, saya harap informasi tadi bisa membantu"
     };
 
     void Start(){
         n=0;
+        dialogText.text="Masukan Kode Telepati untuk mencari Narahubung";
     }
     void Update(){
         if(menginformasi){

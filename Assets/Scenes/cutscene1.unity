@@ -148,7 +148,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 270020869}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 9d46715456a7e4641b239952f6b3905b, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 952b5afdb9c2353429d5103275fd2b64, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -330,6 +330,7 @@ MonoBehaviour:
     type: 3}
   pointer: {fileID: 0}
   isClickable: 0
+  buttonProp: 0
   visited: 0
   global_id: 0
   currentId: 0
@@ -382,7 +383,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 385, y: -209}
+  m_AnchoredPosition: {x: 422.6, y: -209}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &555117674
@@ -405,7 +406,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: f98c18c4677d8d54582bd66d6f2d1b8f, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0

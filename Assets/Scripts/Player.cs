@@ -52,6 +52,10 @@ public class Player : MonoBehaviour
         move();
         // climb();
         StorePos();
+
+        if(Input.GetKey(KeyCode.E)){
+            handler.GetComponent<globalEvent>().StoreData();
+        }
     }
     
     void move(){
@@ -63,9 +67,11 @@ public class Player : MonoBehaviour
             if(isGrounded()){
                 if (Input.GetKey(leftKey)){
                     horizontalInput = -1f;
+                    anim.SetFloat("xVelocity", 1f);
                 }
                 else if (Input.GetKey(rightKey)){
                     horizontalInput = 1f;
+                    anim.SetFloat("xVelocity", 1f);
                 }
                 if(horizontalInput!=0){
                     transform.localScale = new Vector3(scale.x*horizontalInput, transform.localScale.y, transform.localScale.z);
@@ -73,10 +79,10 @@ public class Player : MonoBehaviour
                 Vector2 movement = new Vector2(horizontalInput, 0);
                 rb.velocity = new Vector2(movement.x * moveSpeed, rb.velocity.y);
                 if(anim.runtimeAnimatorController != null){
-                    if(rb.velocity.x==0){
-                        anim.SetFloat("xVelocity", 0f);
-                    }else{
+                    if(rb.velocity.x!=0){
                         anim.SetFloat("xVelocity", 1f);
+                    }else{
+                        anim.SetFloat("xVelocity", 0f);
                     }
                     // Jumping
                     if(Input.GetKeyDown(jumpKey)){
