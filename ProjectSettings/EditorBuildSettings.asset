@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Telepati.unity
     guid: 63d66673419fa7e4185bdf8546c8b24e
+  - enabled: 1
+    path: Assets/Scenes/ending.unity
+    guid: b0d64ad0d363aca4694b6e752c2d7514
+  - enabled: 1
+    path: Assets/Scenes/csChar.unity
+    guid: 121e33e4fb604d243b4a9d77332aaeb5
   m_configObjects: {}

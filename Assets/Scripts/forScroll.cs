@@ -60,24 +60,28 @@ public class forScroll : MonoBehaviour
     public void tolak(){
         gameObject.GetComponent<count>().tolak+=1;
         gameObject.GetComponent<count>().terhitung+=1;
-        handler.GetComponent<globalEvent>().voga_.check=true;
         if(id==1){
+            handler.GetComponent<globalEvent>().voga_.check=true;
             handler.GetComponent<globalEvent>().voga_.diterima=false;
         }else if(id==2){
             handler.GetComponent<globalEvent>().waterion_.diterima=false;
+            handler.GetComponent<globalEvent>().waterion_.check=true;
         }
+        handler.GetComponent<globalEvent>().StoreData();
         upSroll();
     }
     public void acc(){
         gameObject.GetComponent<count>().terhitung+=1;
         gameObject.GetComponent<count>().acc+=1;
-
-        handler.GetComponent<globalEvent>().voga_.check=true;
+        handler.GetComponent<globalEvent>().waterion_.diterima=true;
         if(id==1){
+            handler.GetComponent<globalEvent>().voga_.check=true;
             handler.GetComponent<globalEvent>().voga_.diterima=true;
         }else if(id==2){
             handler.GetComponent<globalEvent>().waterion_.diterima=true;
+            handler.GetComponent<globalEvent>().waterion_.check=true;
         }
+        handler.GetComponent<globalEvent>().StoreData();
         upSroll();
     }
 

@@ -157,7 +157,7 @@ public class dialogVoga : MonoBehaviour
             case 20 : //jika proposal DITERIMA
                 if(m==1){
                     n=90;
-                    handler.GetComponent<moveToScene>().pindah("Cutscene");
+                    handler.GetComponent<globalEvent>().sceneProcessing();
                 }else{
                     dialogBox.SetActive(true);
                     dialogText.text=decision[0];
@@ -166,7 +166,7 @@ public class dialogVoga : MonoBehaviour
             case 30 : //jika proposal TIDAK DITERIMA
                 if(m==1){
                     n=90;
-                    handler.GetComponent<moveToScene>().pindah("Cutscene");
+                    handler.GetComponent<globalEvent>().sceneProcessing();
                 }else{
                     dialogBox.SetActive(true);
                     dialogText.text=decision[1];

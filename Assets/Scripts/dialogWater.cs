@@ -28,14 +28,15 @@ public class dialogWater : MonoBehaviour
         "Selain itu mungkin hanyalah bahaya sepele untuk kapal semegah dan sehebat ‘Stultivera Navis’ hahaha, Tuan Elio tidak perlu khawatir"
     };
     string[] dana=new string[]{
-        "Dengan Batuan Darkhold, dibutuhkan untuk perlindungan bangunan dan orang didalamnya, kayu firefly digunakan karena aura hangat yang dipancarkan sangat diperlukan karena daerah dekat rawa sangat dingin",
-        "Tidak ada, karena 70% dana sudah ditanggung oleh yayasan, jadi ini hanya seperti dana tambahan saja. jika pendanaan ini diterima maka Yayasan bisa membangun tempat penampungan yang lebih layak dan bagus",
-        "Orc tidak memiliki budaya mencatat dan menulis rincian seperti itu, kami lebih suka mengingat ingat saja karena itu ingatan Orc sangat tajam.",
+        "Dengan memanfaatkan kekuatan Batuan Pyrosius ditambahkan dengan teknologi meriam perak yang destruktif, sepertinya akan mampu untuk memberikan serangan fatal pada Coral Colosus",
+        "Jika kemungkinan ditengah produksi kapal terdapat bahan yang kurang, saya mohon agar kerajaan pusat berkenan untuk memberikan dana lebih untuk melengkapi bahan baku yang kurang",
+        "Tentu saja tuan, anda tidak perlu khawatir soal transparasi dana proyek ini, perusahaan kami sudah memiliki nama besar dan tidak akan mengecewakan anda",
         "Namun saya usahakan akan ada tranparasi penggunaan dana tertulis untuk menghormati kerajaan yang memberi kami bantuan"
     };
 
     string[] stempel=new string[]{
-        "Nyonya Evelyn sudah menyetujui pengajuan dana ini, karena dia juga mengecek tempat kejadian secara langsung. Jadi Stempel dan Tanda Tangan ini adalah asli"
+        "Tuan Vasco awalnya menentang keras proyek ini karena dirasa Perairan Coralstorm untuk saat ini tidak perlu untuk dijelajah karena tingkat bahaya yang sangat tinggi juga",
+        "Namun setelah berdiskusi lagi beliau pun akhirnya melembut dan menyetujui proyek besar ini, dan membuka dunia baru bagi banyak orang"
     };
 
     string[] decision=new string[]{
@@ -164,7 +165,7 @@ public class dialogWater : MonoBehaviour
             case 20 : //jika proposal DITERIMA
                 if(m==1){
                     n=90;
-                    handler.GetComponent<moveToScene>().pindah("Cutscene");
+                    handler.GetComponent<globalEvent>().sceneProcessing();
                 }else{
                     dialogBox.SetActive(true);
                     dialogText.text=decision[0];
@@ -173,7 +174,7 @@ public class dialogWater : MonoBehaviour
             case 30 : //jika proposal TIDAK DITERIMA
                 if(m==1){
                     n=90;
-                    handler.GetComponent<moveToScene>().pindah("Cutscene");
+                    handler.GetComponent<globalEvent>().sceneProcessing();
                 }else{
                     dialogBox.SetActive(true);
                     dialogText.text=decision[1];

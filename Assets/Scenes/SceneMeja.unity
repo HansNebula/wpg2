@@ -2927,7 +2927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &508738388
 Transform:
   m_ObjectHideFlags: 0
@@ -4062,7 +4062,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &630820071
 Transform:
   m_ObjectHideFlags: 0
@@ -4660,7 +4660,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &745004440
 Transform:
   m_ObjectHideFlags: 0
@@ -4936,13 +4936,14 @@ GameObject:
   - component: {fileID: 863496232}
   - component: {fileID: 863496230}
   - component: {fileID: 863496231}
+  - component: {fileID: 863496233}
   m_Layer: 0
   m_Name: vierro waterrion
   m_TagString: npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &863496229
 Transform:
   m_ObjectHideFlags: 0
@@ -4951,8 +4952,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 863496228}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.75, z: 2.8398438}
-  m_LocalScale: {x: 0.84516567, y: 0.84516567, z: 0.84516567}
+  m_LocalPosition: {x: 0, y: -1.75, z: 2.839844}
+  m_LocalScale: {x: 0.8451657, y: 0.84516567, z: 0.8451657}
   m_Children: []
   m_Father: {fileID: 148083846}
   m_RootOrder: 1
@@ -5040,6 +5041,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &863496233
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863496228}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3da9ddf242e5c6443abda1f34b8b1d9c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &863734247
 GameObject:
   m_ObjectHideFlags: 0
@@ -7454,13 +7474,14 @@ GameObject:
   - component: {fileID: 1306819575}
   - component: {fileID: 1306819577}
   - component: {fileID: 1306819578}
+  - component: {fileID: 1306819579}
   m_Layer: 0
   m_Name: Orchirus Voragoraths
   m_TagString: npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1306819575
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7519,8 +7540,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1306819574}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.8, z: 2.8398438}
-  m_LocalScale: {x: 0.84516567, y: 0.84516567, z: 0.84516567}
+  m_LocalPosition: {x: 0, y: -0.8, z: 2.839844}
+  m_LocalScale: {x: 0.8451657, y: 0.84516567, z: 0.8451657}
   m_Children: []
   m_Father: {fileID: 148083846}
   m_RootOrder: 0
@@ -7558,6 +7579,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
+--- !u!95 &1306819579
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306819574}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 396c6ece524431f4dbc91241aa0b2de2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1309826814
 GameObject:
   m_ObjectHideFlags: 0
@@ -9324,7 +9364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1639462616
 Transform:
   m_ObjectHideFlags: 0
@@ -10055,7 +10095,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1715064590
 Transform:
   m_ObjectHideFlags: 0

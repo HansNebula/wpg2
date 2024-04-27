@@ -7,6 +7,7 @@ public class telepati : MonoBehaviour
 {
     public GameObject dialogBox, nextButton;
     public Text dialogText;
+    public Animator anim;
     public int n;
     public float delay;
     public bool menunggu, menginformasi;
@@ -38,14 +39,18 @@ public class telepati : MonoBehaviour
     }
 
     public void cari(Text input){
+        n=0;
+        menunggu=false;
+        menginformasi=false;
         StartCoroutine(StartSearch(input));
     }
 
     IEnumerator StartSearch(Text input)
     {
         menunggu = true;
-        while (delay > 0){
-            delay -= Time.deltaTime;
+        float delay1=delay;
+        while (delay1 > 0){
+            delay1 -= Time.deltaTime;
             yield return null;
         }
         for (int i = 0; i < kataKunci.Length; i++){
@@ -56,6 +61,7 @@ public class telepati : MonoBehaviour
         }
         menunggu = false;
         menginformasi = true;
+        anim.Play("aira_telepati 0");
     }
 
 

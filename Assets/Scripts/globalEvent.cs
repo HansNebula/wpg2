@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public struct ver{
     public bool valid;
@@ -22,11 +23,14 @@ public struct npc{
 public class globalEvent : MonoBehaviour
 {
     //==== global =====
+    public int global_id;
+
     public float audio, music;
     public Sprite pointerWand, normalwand;
     public GameObject pointer;
     public bool isClickable, buttonProp;
     public bool visited;
+
     public bool isEnding(){
         if(voga_.check && waterion_.check){
             return true;
@@ -34,7 +38,19 @@ public class globalEvent : MonoBehaviour
             return false;
         }
     }
-    public int global_id;
+
+    public bool goodEnding(){
+        if(isEnding()){
+            if(voga_.diterima && !waterion_.diterima){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
+
     //=================
     public npc voga_;
     public npc waterion_;
@@ -44,14 +60,6 @@ public class globalEvent : MonoBehaviour
     public bool lb, lb_valid, lb_asked;
     public bool dana, dana_valid, dana_asked;
     public bool stempel, stempel_valid, stempel_asked;
-
-    public bool goodEnding(){
-        if(voga_.diterima && !waterion_.diterima){
-            return true;
-        }else{
-            return false;
-        }
-    }
 
     void Start(){
         LoadData();
@@ -103,14 +111,19 @@ public class globalEvent : MonoBehaviour
             LoadData();
         }
 
-        print("voga : " + voga_.check);
-        print("water : " + waterion_.check);
-        print(isEnding());
+        bool cekVoga=PlayerPrefs.GetInt("voga_check")==1;
+        bool cekWater=PlayerPrefs.GetInt("waterion_check")==1;
+
+        print("voga : " + voga_.check + "\tData "+cekVoga);
+        print("water : " + waterion_.check +"\tData "+cekWater);
+        print("isEnding : "+isEnding());
+        print("good ending : "+goodEnding());
     }
 
     public void StoreData(){
         //===== global =====
             PlayerPrefs.SetInt("visited", visited ? 1 : 0);
+            // PlayerPrefs.SetInt("goodEnding", goodEnding ? 1 : 0);
             PlayerPrefs.SetInt("global_id", global_id);
         //============      voga        ================================================================
             //id
@@ -173,6 +186,7 @@ public class globalEvent : MonoBehaviour
     public void LoadData(){
         //===== global =====
             visited = PlayerPrefs.GetInt("visited")==1;
+            // goodEnding() = PlayerPrefs.GetInt("goodEnding")==1;
             global_id=PlayerPrefs.GetInt("global_id"); 
         //============      voga        ================================================================
             //id
@@ -348,7 +362,11 @@ public class globalEvent : MonoBehaviour
     }
 
 
-    public void ending(){
-        
+    public void sceneProcessing(){
+        if(isEnding()){
+            SceneManager.LoadScene("ending");
+        }else{
+            SceneManager.LoadScene("Cutscene");
+        }
     }
 }
