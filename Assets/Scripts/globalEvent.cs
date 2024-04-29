@@ -23,6 +23,7 @@ public struct npc{
 public class globalEvent : MonoBehaviour
 {
     //==== global =====
+    public bool isTutorial;
     public int global_id;
 
     public float audio, music;
@@ -312,7 +313,7 @@ public class globalEvent : MonoBehaviour
     }
 
     public void setGlobalId(){
-        global_id=1;
+        global_id=0;
     } 
 
     public void visiting(){
@@ -341,25 +342,33 @@ public class globalEvent : MonoBehaviour
         }
     }
 
+   
     public void raycastPointer(){
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0f;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Plane gamePlane = new Plane(Vector3.forward, 0);
+        RaycastHit2D hit;
 
-        pointer.transform.position = mousePos;
+        if (gamePlane.Raycast(ray, out float distance)){
+            Vector3 hitPoint = ray.GetPoint(distance);
+            pointer.transform.position = hitPoint;
 
-        RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
+            hit = Physics2D.Raycast(hitPoint, Vector2.zero);
+        }
+        else{
+            pointer.transform.position = Vector3.zero;
+            hit = new RaycastHit2D();
+        }
+
         if (hit.collider != null){
-           if(hit.collider.CompareTag("clickable")){
-                isClickable=true;
-            }else if(hit.collider.CompareTag("ButtonProp")){
-                isClickable=true;
-                // GameObject parentObject = hit.collider.gameObject.transform.parent.gameObject.transform.parent.gameObject;
-                // parentObject.GetComponent<hover>().isHovButton=true;
-            }
-        }else{
-            isClickable=false;
+            isClickable = hit.collider.CompareTag("clickable") || hit.collider.CompareTag("ButtonProp");
+            // GameObject parentObject = hit.collider.gameObject.transform.parent.gameObject.transform.parent.gameObject;
+            // parentObject.GetComponent<hover>().isHovButton=true;
+        }
+        else{
+            isClickable = false;
         }
     }
+
 
 
     public void sceneProcessing(){

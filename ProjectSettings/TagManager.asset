@@ -11,6 +11,7 @@ TagManager:
   - pointer
   - clickable
   - ButtonProp
+  - Tutorial
   layers:
   - Default
   - TransparentFX
