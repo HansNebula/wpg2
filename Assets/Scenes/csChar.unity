@@ -323,6 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b3eaa88b103a2d49b4943209d5dc4b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTutorial: 0
   global_id: 0
   audio: 0
   music: 0
@@ -362,8 +363,8 @@ MonoBehaviour:
   global: {fileID: 0}
   vid: {fileID: 270020870}
   tutorClip: {fileID: 32900000, guid: 952b5afdb9c2353429d5103275fd2b64, type: 3}
-  vogaClip: {fileID: 32900000, guid: 39945d985de6a404cbf723274451a902, type: 3}
-  waterClip: {fileID: 32900000, guid: 870519e2e0174894b8c52efe0042ac0d, type: 3}
+  vogaClip: {fileID: 32900000, guid: f220d9c6fde41f847b1f56e1bece125a, type: 3}
+  waterClip: {fileID: 32900000, guid: 61a7ea456c5f4ec4f91607255bfb5fac, type: 3}
 --- !u!1 &555117672
 GameObject:
   m_ObjectHideFlags: 0

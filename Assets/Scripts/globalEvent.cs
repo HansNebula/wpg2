@@ -313,7 +313,7 @@ public class globalEvent : MonoBehaviour
     }
 
     public void setGlobalId(){
-        global_id=0;
+        global_id=1;
     } 
 
     public void visiting(){
