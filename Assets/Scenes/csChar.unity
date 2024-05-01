@@ -363,8 +363,8 @@ MonoBehaviour:
   global: {fileID: 0}
   vid: {fileID: 270020870}
   tutorClip: {fileID: 32900000, guid: 952b5afdb9c2353429d5103275fd2b64, type: 3}
-  vogaClip: {fileID: 32900000, guid: f220d9c6fde41f847b1f56e1bece125a, type: 3}
-  waterClip: {fileID: 32900000, guid: 61a7ea456c5f4ec4f91607255bfb5fac, type: 3}
+  vogaClip: {fileID: 32900000, guid: 76385eb917c83e244a3229a8c517d525, type: 3}
+  waterClip: {fileID: 32900000, guid: 287da2eea3349c54b9c1627f247c4ec9, type: 3}
 --- !u!1 &555117672
 GameObject:
   m_ObjectHideFlags: 0
