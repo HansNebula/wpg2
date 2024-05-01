@@ -115,10 +115,10 @@ public class globalEvent : MonoBehaviour
         bool cekVoga=PlayerPrefs.GetInt("voga_check")==1;
         bool cekWater=PlayerPrefs.GetInt("waterion_check")==1;
 
-        print("voga : " + voga_.check + "\tData "+cekVoga);
-        print("water : " + waterion_.check +"\tData "+cekWater);
-        print("isEnding : "+isEnding());
-        print("good ending : "+goodEnding());
+        // print("voga : " + voga_.check + "\tData "+cekVoga);
+        // print("water : " + waterion_.check +"\tData "+cekWater);
+        // print("isEnding : "+isEnding());
+        // print("good ending : "+goodEnding());
     }
 
     public void StoreData(){

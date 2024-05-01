@@ -7,8 +7,9 @@ public class mainMenu : MonoBehaviour
     public GameObject[] clouds;
     void Awake(){
         gameObject.GetComponent<globalEvent>().setGlobalId();
+        gameObject.GetComponent<globalEvent>().ResetData();
         // ResetGlobal();
-        Debug.Log("reset");
+        // Debug.Log("reset");
     }
 
     void Update(){

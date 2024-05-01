@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class MusicManager : MonoBehaviour
 {
     private static MusicManager instance;
@@ -21,6 +21,14 @@ public class MusicManager : MonoBehaviour
     {
         // Play music here (optional)
         PlayMusic();
+    }
+
+    void Update(){
+        Scene currentScene = SceneManager.GetActiveScene();
+    if (currentScene.name == "MainMenu" || currentScene.name == "csChar" || currentScene.name == "ending")
+    {
+        Destroy(gameObject);
+    }
     }
 
     public void PlayMusic()

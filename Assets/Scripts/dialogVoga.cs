@@ -53,6 +53,7 @@ public class dialogVoga : MonoBehaviour
         handler=GameObject.FindGameObjectWithTag("GameController");
     }
     void openProp(){
+        print("voga_conv :"+PlayerPrefs.GetInt("voga_conv"));
         if(PlayerPrefs.GetInt("voga_conv")==0){
             dialogBox.SetActive(true);
         }else{
