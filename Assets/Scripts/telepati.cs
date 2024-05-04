@@ -61,7 +61,7 @@ public class telepati : MonoBehaviour
         }
         menunggu = false;
         menginformasi = true;
-        anim.Play("aira_telepati 0");
+        // anim.Play("aira_telepati 0");
     }
 
 
@@ -70,6 +70,7 @@ public class telepati : MonoBehaviour
         switch(n){
             case 0:
                 dialogText.text="Narahubung tidak ditemukan, Masukan code dengan benar";
+                anim.Play("aira_telepati 0");
                 break;
             case 1:
                 if(m<greenfangs.Length){
@@ -79,6 +80,7 @@ public class telepati : MonoBehaviour
                     dialogText.text="<i>*Narahubung meninggalkan telepati</i>";
                     nextButton.SetActive(false);
                     menginformasi=false;
+                    anim.Play("aira_telepati 0");
                 }
                 break;
             case 2:
@@ -89,6 +91,7 @@ public class telepati : MonoBehaviour
                     dialogText.text="<i>*Narahubung meninggalkan telepati</i>";
                     nextButton.SetActive(false);
                     menginformasi=false;
+                    anim.Play("aira_telepati 0");
                 }
                 break;
         }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class dialogVoga : MonoBehaviour
 {
     public GameObject dialogBox, handler;
+    public Animator anim;
     public Text nametag, dialogText;
     public GameObject opsi1, opsi2;
     string[] greetings=new string[]{
@@ -49,7 +50,7 @@ public class dialogVoga : MonoBehaviour
     }
     void Update(){
         dialogManual();
-        nametag.text="Orchirus Voragoths";
+        nametag.text="Orchirus Voragoraths";
         handler=GameObject.FindGameObjectWithTag("GameController");
     }
     void openProp(){
@@ -65,6 +66,8 @@ public class dialogVoga : MonoBehaviour
         switch(n){
             case 90:
                 dialogBox.SetActive(false);
+                StopCoroutine(talking(0));
+                anim.Play("voga_idle");
                 m=0;
                 n=0;
                 break;
@@ -73,6 +76,8 @@ public class dialogVoga : MonoBehaviour
                     n=90;
                 }else{
                     dialogText.text=greetings[m];
+                    print(isTalking);
+                    StartCoroutine(talking(2f));
                 }
                 break;
             case 2 : //jika ditanya kop surat
@@ -81,12 +86,14 @@ public class dialogVoga : MonoBehaviour
                 }else{
                     dialogBox.SetActive(true);
                     dialogText.text=kop[m];
+                    StartCoroutine(talking(2f));
                 }
                 break;
             case 3 : //jika ditanya laterbelakang
                 if(m==0){
                     dialogBox.SetActive(true);
                     dialogText.text=lb[0];
+                    StartCoroutine(talking(2f));
                 }else if(m==1){
                     dialogBox.SetActive(false);
                     opsi1.SetActive(true);
@@ -106,6 +113,7 @@ public class dialogVoga : MonoBehaviour
                 }else{
                     dialogBox.SetActive(true);
                     dialogText.text=stempel[m];
+                    StartCoroutine(talking(2f));
                 }
                 break;
             case 6 : //lanjutan case 3 (kapan)
@@ -113,6 +121,7 @@ public class dialogVoga : MonoBehaviour
                 if(m==0){
                     dialogBox.SetActive(true);
                     dialogText.text=lb[1];
+                    StartCoroutine(talking(2f));
                 }else if(m==1){
                     dialogBox.SetActive(false);
                 }
@@ -122,6 +131,7 @@ public class dialogVoga : MonoBehaviour
                 if(m==0){
                     dialogBox.SetActive(true);
                     dialogText.text=lb[2];
+                    StartCoroutine(talking(2f));
                 }else if(m==1){
                     dialogBox.SetActive(false);
                 }
@@ -131,6 +141,7 @@ public class dialogVoga : MonoBehaviour
                 if(m==0){
                     dialogBox.SetActive(true);
                     dialogText.text=dana[0];
+                    StartCoroutine(talking(2f));
                 }else if(m==1){
                     dialogBox.SetActive(false);
                 }
@@ -140,6 +151,7 @@ public class dialogVoga : MonoBehaviour
                 if(m==0){
                     dialogBox.SetActive(true);
                     dialogText.text=dana[1];
+                    StartCoroutine(talking(2f));
                 }else if(m==1){
                     dialogBox.SetActive(false);
                 }
@@ -150,6 +162,7 @@ public class dialogVoga : MonoBehaviour
                     m=2;
                     dialogBox.SetActive(true);
                     dialogText.text=dana[m];
+                    StartCoroutine(talking(2f));
                 }else {
                     dialogBox.SetActive(false);
                 }
@@ -162,6 +175,7 @@ public class dialogVoga : MonoBehaviour
                 }else{
                     dialogBox.SetActive(true);
                     dialogText.text=decision[0];
+                    StartCoroutine(talking(2f));
                 }
                 break;
             case 30 : //jika proposal TIDAK DITERIMA
@@ -171,6 +185,7 @@ public class dialogVoga : MonoBehaviour
                 }else{
                     dialogBox.SetActive(true);
                     dialogText.text=decision[1];
+                    StartCoroutine(talking(2f));
                 }
                 break;
         }
@@ -178,10 +193,22 @@ public class dialogVoga : MonoBehaviour
 
     public void nextDialog(){
         m++;
+        isTalking=false;
     }
 
     public void switchToCase(int value){
         n=value;
         m=0;
+    }
+    bool isTalking=false;
+    public IEnumerator talking(float dur){
+        float dur2 = dur;
+        while(0<dur2 && !isTalking){
+            dur2 -= Time.deltaTime;
+            anim.Play("voga_talk");
+            yield return null;
+        }
+        isTalking=true;
+        anim.Play("voga_idle");
     }
 }
