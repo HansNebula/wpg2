@@ -2786,6 +2786,8 @@ MonoBehaviour:
   kataKunci:
   - greenfangs
   - aquarush
+  - redhorn
+  - redroot
 --- !u!1 &1345806978
 GameObject:
   m_ObjectHideFlags: 0

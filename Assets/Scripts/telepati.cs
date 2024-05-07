@@ -26,6 +26,19 @@ public class telepati : MonoBehaviour
         "Terimakasih telah menghubungi kami, saya harap informasi tadi bisa membantu"
     };
 
+    string[] redhorn=new string[]{
+        "Halo, dengan narahubung Redleaf Herbal Healt disini. ada yang bisa saya bantu?",
+        "Pengajuan dana untuk renovasi gudang penyimpanan Arcane Essence? hal itu benar, kebakaran yang terjadi membuat gudang hancur dan harus segera di renovasi",
+        "banyak masyarakat membutuhkan persediaan Arcane Essence sekarang, semoga tuan inspektur mau bekerja sama, terimakasih sudah menghubungi"
+    };
+
+    string[] redroot=new string[]{
+        "Halo, saya Relina Viperia narahubung Redleaf Herbal Healt, apakah ada yang bisa saya bantu disini?",
+        "Pengajuan dana untuk renovasi gudang yang kebakaran? kami memang mengalaminya, tapi itu masih dalam tahap investigasi dan mencari pelakunya",
+        "Apalagi Arcane Essence disana beserta semua obat lain didalam gudang itu seperti sudah dipindahkan dulu sebelum kebakaran itu terjadi, itu sangatlah mencurigakan",
+        "Sepertinya itu saja informasi yang bisa saya berikan tuan inspektur, jika ada perkembangan tentang kasus ini akan segera saya sampaikan, Terimakasih"
+    };
+
     void Start(){
         n=0;
         dialogText.text="Masukan Kode Telepati untuk mencari Narahubung";
@@ -39,6 +52,7 @@ public class telepati : MonoBehaviour
     }
 
     public void cari(Text input){
+        m=0;
         n=0;
         menunggu=false;
         menginformasi=false;
@@ -68,9 +82,13 @@ public class telepati : MonoBehaviour
     int m=0;
     public void proses(){
         switch(n){
+            case 90:
+                anim.Play("default");
+            break;
             case 0:
                 dialogText.text="Narahubung tidak ditemukan, Masukan code dengan benar";
                 anim.Play("aira_telepati 0");
+                n=90;
                 break;
             case 1:
                 if(m<greenfangs.Length){
@@ -94,6 +112,28 @@ public class telepati : MonoBehaviour
                     anim.Play("aira_telepati 0");
                 }
                 break;
+            case 3:
+                if(m<redhorn.Length){
+                    nextButton.SetActive(true);
+                    dialogText.text=redhorn[m];
+                }else{
+                    dialogText.text="<i>*Narahubung meninggalkan telepati</i>";
+                    nextButton.SetActive(false);
+                    menginformasi=false;
+                    anim.Play("aira_telepati 0");
+                }
+                break;
+            case 4:
+                if(m<redroot.Length){
+                    nextButton.SetActive(true);
+                    dialogText.text=redroot[m];
+                }else{
+                    dialogText.text="<i>*Narahubung meninggalkan telepati</i>";
+                    nextButton.SetActive(false);
+                    menginformasi=false;
+                    anim.Play("aira_telepati 0");
+                }
+                break;|
         }
     }
 

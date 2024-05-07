@@ -311,7 +311,7 @@ public class globalEvent : MonoBehaviour
     public void ResetData(){
         //===== global =====
             PlayerPrefs.SetInt("visited", 0);
-            PlayerPrefs.SetInt("global_id", 0);
+            PlayerPrefs.SetInt("global_id", 1);
 
             //posisi
             PlayerPrefs.SetFloat("posX", -2.48f);
@@ -405,7 +405,8 @@ public class globalEvent : MonoBehaviour
     } 
 
     public void visiting(){
-        PlayerPrefs.SetInt("visited", 1);
+        visited=true;
+        // PlayerPrefs.SetInt("visited", 1);
     }
 
     public void setPlayerPos(float x){

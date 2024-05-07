@@ -163,6 +163,7 @@ public class Player : MonoBehaviour
         // Check if the ray hits a collider
         if (hit.collider != null)
         {
+            Debug.Log(hit.collider.gameObject.name);
             if (hit.collider.name == "blok")
             {
                 handler.GetComponent<dialogTutor>().n = 11;

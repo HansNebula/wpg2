@@ -1388,7 +1388,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.29872274, y: -0.12731612}
@@ -2592,6 +2592,11 @@ MonoBehaviour:
   dialogText: {fileID: 0}
   opsi1: {fileID: 0}
   opsi2: {fileID: 0}
+  greetings:
+  - Saya Orchirus Voragoths dari Distrik Shadowgale di daerah Glomynesia dan menjadi
+    perwakilan atas Yayasan Amal Voragoraths
+  - Saya ingin mengajukan Scroll Proposal untuk pendanaan, saya berharap Proposal
+    saya bisa diterima
   n: 0
   m: 0
 --- !u!212 &508451332
@@ -3265,6 +3270,11 @@ MonoBehaviour:
   dialogText: {fileID: 0}
   opsi1: {fileID: 0}
   opsi2: {fileID: 0}
+  greetings:
+  - Saya Orchirus Voragoths dari Distrik Shadowgale di daerah Glomynesia dan menjadi
+    perwakilan atas Yayasan Amal Voragoraths
+  - Saya ingin mengajukan Scroll Proposal untuk pendanaan, saya berharap Proposal
+    saya bisa diterima
   n: 0
   m: 0
 --- !u!212 &606847164
@@ -4168,10 +4178,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogBox: {fileID: 2036339723}
+  dialogKepala: {fileID: 0}
   handler: {fileID: 778008578}
   nextButton: {fileID: 390277365}
   nametag: {fileID: 1495887626}
   dialogText: {fileID: 878661538}
+  textKepala: {fileID: 0}
   back: {fileID: 2043798972}
   pause: {fileID: 1906635610}
   prop: {fileID: 871312262}
@@ -4692,7 +4704,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -5212,7 +5224,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.29285073, y: -0.07441482}
@@ -5433,6 +5445,11 @@ MonoBehaviour:
   dialogText: {fileID: 0}
   opsi1: {fileID: 0}
   opsi2: {fileID: 0}
+  greetings:
+  - Saya Orchirus Voragoths dari Distrik Shadowgale di daerah Glomynesia dan menjadi
+    perwakilan atas Yayasan Amal Voragoraths
+  - Saya ingin mengajukan Scroll Proposal untuk pendanaan, saya berharap Proposal
+    saya bisa diterima
   n: 0
   m: 0
 --- !u!212 &944292861
@@ -7599,7 +7616,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.2939334, y: -0.00026622415}
@@ -7957,7 +7974,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.301327, y: 0.07500018}
@@ -9700,6 +9717,11 @@ MonoBehaviour:
   dialogText: {fileID: 0}
   opsi1: {fileID: 0}
   opsi2: {fileID: 0}
+  greetings:
+  - Saya Orchirus Voragoths dari Distrik Shadowgale di daerah Glomynesia dan menjadi
+    perwakilan atas Yayasan Amal Voragoraths
+  - Saya ingin mengajukan Scroll Proposal untuk pendanaan, saya berharap Proposal
+    saya bisa diterima
   n: 0
   m: 0
 --- !u!212 &1806726724

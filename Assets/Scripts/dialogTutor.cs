@@ -51,6 +51,7 @@ public class dialogTutor : MonoBehaviour
         nametag.text = "Aira Magisius";
         dialogText.text = "";
         isTalking=false;
+        dialogBox.SetActive(false);
         m=0;
         if(currentScene.name=="tutorial1"){
             n=0;
@@ -63,8 +64,10 @@ public class dialogTutor : MonoBehaviour
     }
     void Update(){
         handler=GameObject.FindGameObjectWithTag("GameController");
-        if (!isTalking){
-            dialogManual();
+        if(handler.GetComponent<globalEvent>().isTutorial()){
+            if (!isTalking){
+                dialogManual();
+            }
         }
     }
 
