@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class dialogVoga : MonoBehaviour
+public class dialogMino : MonoBehaviour
 {
     public GameObject dialogBox, handler;
     public Animator anim;
     public Text nametag, dialogText;
     public GameObject opsi1, opsi2;
-    
-    public string[] greetings=new string[]{
+    string[] greetings=new string[]{
         "Saya Orchirus Voragoths dari Distrik Shadowgale di daerah Glomynesia dan menjadi perwakilan atas Yayasan Amal Voragoraths",
         "Saya ingin mengajukan Scroll Proposal untuk pendanaan, saya berharap Proposal saya bisa diterima"
     };

@@ -52,6 +52,9 @@ public class Player : MonoBehaviour
         move();
         // climb();
         StorePos();
+        if(handler.GetComponent<globalEvent>().isTutorial()){
+            blocked();
+        }
 
         if(Input.GetKey(KeyCode.E)){
             handler.GetComponent<globalEvent>().StoreData();
@@ -148,6 +151,29 @@ public class Player : MonoBehaviour
         if(Input.GetKey(KeyCode.E)){
             PlayerPrefs.SetFloat("posY", GetComponent<Transform>().position.y);
             PlayerPrefs.SetFloat("posX", GetComponent<Transform>().position.x);
+        }
+    }
+    public float raycastDistance=1f;
+    public LayerMask collisionLayer;
+    void blocked(){
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, raycastDistance, collisionLayer);
+    
+        // Debug information
+        Debug.DrawRay(transform.position, Vector2.left * raycastDistance, Color.red); // Draw the ray in scene view
+        // Check if the ray hits a collider
+        if (hit.collider != null)
+        {
+            if (hit.collider.name == "blok")
+            {
+                handler.GetComponent<dialogTutor>().n = 11;
+                handler.GetComponent<dialogTutor>().m = 0;
+            }
+            // Check collider tag
+            else if (hit.collider.CompareTag("meja"))
+            {
+                handler.GetComponent<dialogTutor>().n = 12;
+                handler.GetComponent<dialogTutor>().m = 0;
+            }
         }
     }
 }

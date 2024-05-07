@@ -23,8 +23,7 @@ public struct npc{
 public class globalEvent : MonoBehaviour
 {
     //==== global =====
-    public bool isTutorial;
-    public int global_id;
+      public int global_id;
 
     public float audio, music;
     public Sprite pointerWand, normalwand;
@@ -40,6 +39,10 @@ public class globalEvent : MonoBehaviour
         }
     }
 
+    public bool isTutorial(){
+        return global_id==0;
+    }
+
     public bool goodEnding(){
         if(isEnding()){
             if(voga_.diterima && !waterion_.diterima){
@@ -53,6 +56,7 @@ public class globalEvent : MonoBehaviour
     }
 
     //=================
+    public npc mino_;
     public npc voga_;
     public npc waterion_;
     public npc currentNpc;
@@ -68,17 +72,20 @@ public class globalEvent : MonoBehaviour
     }
     void Awake(){
         pointer=GameObject.FindGameObjectWithTag("pointer");
-        PlayerPrefs.SetInt("visited", 1);
+        // PlayerPrefs.SetInt("visited", 1);
         LoadData();
     }
 
     void Update(){
+        mino_.id=0;
         voga_.id=1;
         waterion_.id=2;
         if(global_id==1){
             currentNpc=voga_;
         }else if(global_id==2){
             currentNpc=waterion_;
+        }else if(global_id==0){
+            currentNpc=mino_;
         }
 
         // LoadData();
@@ -181,6 +188,33 @@ public class globalEvent : MonoBehaviour
             //bawah
             PlayerPrefs.SetInt("waterion_check", (waterion_.check ? 1 : 0));
             PlayerPrefs.SetInt("waterion_diterima", (waterion_.diterima ? 1 : 0));
+        //============      mino       ================================================================
+            //id
+            PlayerPrefs.SetInt("mino_id", mino_.id);
+            //kop
+            PlayerPrefs.SetInt("mino_kop_cek", (mino_.kop.sudah ? 1 : 0));
+            PlayerPrefs.SetInt("mino_kop_valid", (mino_.kop.valid ? 1 : 0));
+            PlayerPrefs.SetInt("mino_kop_tanya", (mino_.kop.asked ? 1 : 0));
+            //lb
+            PlayerPrefs.SetInt("mino_lb_cek", (mino_.lb.sudah ? 1 : 0));
+            PlayerPrefs.SetInt("mino_lb_valid", (mino_.lb.valid ? 1 : 0));
+            PlayerPrefs.SetInt("mino_lb_tanya", (mino_.lb.asked ? 1 : 0));
+            //dana
+            PlayerPrefs.SetInt("mino_dana_cek", (mino_.dana.sudah ? 1 : 0));
+            PlayerPrefs.SetInt("mino_dana_valid", (mino_.dana.valid ? 1 : 0));
+            PlayerPrefs.SetInt("mino_dana_tanya", (mino_.dana.asked ? 1 : 0));
+            //stempel
+            PlayerPrefs.SetInt("mino_stempel_cek", (mino_.stempel.sudah ? 1 : 0));
+            PlayerPrefs.SetInt("mino_stempel_valid", (mino_.stempel.valid ? 1 : 0));
+            PlayerPrefs.SetInt("mino_stempel_tanya", (mino_.stempel.asked ? 1 : 0));
+            //cek apakah sudah membuka proposal
+            PlayerPrefs.SetInt("mino_conv", mino_.conv ? 1 : 0);
+            //persentase
+            PlayerPrefs.SetInt("mino_persentase", mino_.presentase);
+            
+            //bawah
+            PlayerPrefs.SetInt("mino_check", (mino_.check ? 1 : 0));
+            PlayerPrefs.SetInt("mino_diterima", (mino_.diterima ? 1 : 0));
 
     }
 
@@ -244,16 +278,43 @@ public class globalEvent : MonoBehaviour
             //bawah
             waterion_.check = PlayerPrefs.GetInt("waterion_check")==1;
             waterion_.diterima = PlayerPrefs.GetInt("waterion_diterima")==1;
+        //============      mino        ==============================================================
+            //id
+            mino_.id = PlayerPrefs.GetInt("mino_id");
+            //kop
+            mino_.kop.sudah = PlayerPrefs.GetInt("mino_kop_cek")==1;
+            mino_.kop.valid = PlayerPrefs.GetInt("mino_kop_valid")==1;
+            mino_.kop.asked = PlayerPrefs.GetInt("mino_kop_tanya")==1;
+            //lb
+            mino_.lb.sudah = PlayerPrefs.GetInt("mino_lb_cek")==1;
+            mino_.lb.valid = PlayerPrefs.GetInt("mino_lb_valid")==1;
+            mino_.lb.asked = PlayerPrefs.GetInt("mino_lb_tanya")==1;
+            //dana
+            mino_.dana.sudah = PlayerPrefs.GetInt("mino_dana_cek")==1;
+            mino_.dana.valid = PlayerPrefs.GetInt("mino_dana_valid")==1;
+            mino_.dana.asked = PlayerPrefs.GetInt("mino_dana_tanya")==1;
+            //stempel
+            mino_.stempel.sudah = PlayerPrefs.GetInt("mino_stempel_cek")==1;
+            mino_.stempel.valid = PlayerPrefs.GetInt("mino_stempel_valid")==1;
+            mino_.stempel.asked = PlayerPrefs.GetInt("mino_stempel_tanya")==1;
+            //cek prop
+            mino_.conv = PlayerPrefs.GetInt("mino_conv")==1;
+            //persentase
+            mino_.presentase = PlayerPrefs.GetInt("mino_persentase");
+            
+            //bawah
+            mino_.check = PlayerPrefs.GetInt("mino_check")==1;
+            mino_.diterima = PlayerPrefs.GetInt("mino_diterima")==1;
 
     }
 
     public void ResetData(){
         //===== global =====
             PlayerPrefs.SetInt("visited", 0);
-            PlayerPrefs.SetInt("global_id", 1);
+            PlayerPrefs.SetInt("global_id", 0);
 
             //posisi
-            PlayerPrefs.DeleteKey("posX");
+            PlayerPrefs.SetFloat("posX", -2.48f);
             PlayerPrefs.DeleteKey("posY");
         //============      voga        ================================================================
             //id
@@ -310,6 +371,33 @@ public class globalEvent : MonoBehaviour
             //bawah
             PlayerPrefs.SetInt("waterion_check", 0);
             PlayerPrefs.SetInt("waterion_diterima", 0);
+        //============      mino       ================================================================
+            //id
+            PlayerPrefs.SetInt("mino_id", 2);
+            //kop
+            PlayerPrefs.SetInt("mino_kop_cek", 0);
+            PlayerPrefs.SetInt("mino_kop_valid", 0);
+            PlayerPrefs.SetInt("mino_kop_tanya", 0);
+            //lb
+            PlayerPrefs.SetInt("mino_lb_cek", 0);
+            PlayerPrefs.SetInt("mino_lb_valid", 0);
+            PlayerPrefs.SetInt("mino_lb_tanya", 0);
+            //dana
+            PlayerPrefs.SetInt("mino_dana_cek", 0);
+            PlayerPrefs.SetInt("mino_dana_valid", 0);
+            PlayerPrefs.SetInt("mino_dana_tanya", 0);
+            //stempel
+            PlayerPrefs.SetInt("mino_stempel_cek", 0);
+            PlayerPrefs.SetInt("mino_stempel_valid", 0);
+            PlayerPrefs.SetInt("mino_stempel_tanya", 0);
+            //cek apakah sudah membuka proposal
+            PlayerPrefs.SetInt("mino_conv", 0);
+            //persentase
+            PlayerPrefs.SetInt("mino_persentase", 0);
+            
+            //bawah
+            PlayerPrefs.SetInt("mino_check", 0);
+            PlayerPrefs.SetInt("mino_diterima", 0);
     }
 
     public void setGlobalId(){
@@ -330,6 +418,8 @@ public class globalEvent : MonoBehaviour
             voga_.conv=true;
         }else if(global_id==1){
             waterion_.conv=true;
+        }else if(global_id==0){
+            mino_.conv=true;
         }
     }
 

@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30a9154a66f9dd0429a0ba9cf3dbe2a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  namaScene: SceneMeja
+  namaScene: tutorial1
 --- !u!114 &270020873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,7 +322,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b3eaa88b103a2d49b4943209d5dc4b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTutorial: 0
   global_id: 0
   audio: 0
   music: 0
@@ -479,7 +478,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: SceneMeja
+          m_StringArgument: tutorial1
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1933544254}

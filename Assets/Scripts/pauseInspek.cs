@@ -8,7 +8,12 @@ public class pauseInspek : MonoBehaviour
     public GameObject prop, pauseObj, dialogBox;
     public dialogVoga voga;
     public dialogWater water;
+    public dialogMino mino;
     public bool isPause;
+
+    void Start(){
+        PlayerPrefs.SetInt("visited", 1);
+    }
 
     void Update(){
         for(int i = 0;i<buttons.Length;i++){
@@ -30,6 +35,8 @@ public class pauseInspek : MonoBehaviour
         if(PlayerPrefs.GetInt("global_id")==1 && PlayerPrefs.GetInt("voga_conv")==0){
             voga.n=1;
         }else if(PlayerPrefs.GetInt("global_id")==2 && PlayerPrefs.GetInt("water_conv")==0){
+            water.n=1;
+        }else if(PlayerPrefs.GetInt("global_id")==0 && PlayerPrefs.GetInt("mino_conv")==0){
             water.n=1;
         }
     }
