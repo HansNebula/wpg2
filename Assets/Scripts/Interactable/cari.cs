@@ -69,6 +69,7 @@ public class cari : MonoBehaviour
     }
 
     public void hintByFront(){
+        hide();
         Tcari=inCari.text.ToLower();
         // print(Tcari);
         hintText.text="";

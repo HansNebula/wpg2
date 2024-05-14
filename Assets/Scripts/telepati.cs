@@ -133,7 +133,7 @@ public class telepati : MonoBehaviour
                     menginformasi=false;
                     anim.Play("aira_telepati 0");
                 }
-                break;|
+                break;
         }
     }
 
