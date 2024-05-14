@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class dialogVoga : MonoBehaviour
 {
-    public GameObject dialogBox, handler;
+    public GameObject dialogBox, handler, nextButton;
     public Animator anim;
     public Text nametag, dialogText;
     public GameObject opsi1, opsi2;
@@ -48,6 +48,7 @@ public class dialogVoga : MonoBehaviour
         openProp();
         opsi1.SetActive(false);
         opsi2.SetActive(false);
+        isTalking2=false;
     }
     void Update(){
         dialogManual();
@@ -211,4 +212,19 @@ public class dialogVoga : MonoBehaviour
         isTalking=true;
         anim.Play("voga_idle");
     }
+    bool isTalking2 = true;
+     IEnumerator TypeText(string fullText, Text dialog)
+    {
+        isTalking2 = true;
+        dialog.text = "";
+        foreach (char letter in fullText)
+        {
+            nextButton.SetActive(false);
+            dialog.text += letter;
+            yield return null; // Yielding null waits for the next frame
+        }
+        // isTalking = false;
+        nextButton.SetActive(true);
+    } 
+        
 }
