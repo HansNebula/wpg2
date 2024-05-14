@@ -361,8 +361,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   global: {fileID: 0}
   vid: {fileID: 270020870}
-  good: {fileID: 32900000, guid: 870519e2e0174894b8c52efe0042ac0d, type: 3}
-  bad: {fileID: 32900000, guid: 39945d985de6a404cbf723274451a902, type: 3}
+  good: {fileID: 32900000, guid: d73cd78ec65ea964c81bfbed7b681cc4, type: 3}
+  bad: {fileID: 32900000, guid: fbf18bc3ff27c2b458658516e0eff6de, type: 3}
 --- !u!1 &555117672
 GameObject:
   m_ObjectHideFlags: 0
