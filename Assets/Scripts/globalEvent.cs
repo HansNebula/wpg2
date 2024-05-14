@@ -61,6 +61,7 @@ public class globalEvent : MonoBehaviour
     public npc waterion_;
     public npc currentNpc;
     public int currentId;
+    public bool conv;
     public bool kop, kop_valid, kop_asked;
     public bool lb, lb_valid, lb_asked;
     public bool dana, dana_valid, dana_asked;
@@ -97,6 +98,7 @@ public class globalEvent : MonoBehaviour
 
     void debug(){
         currentId       = currentNpc.id;
+        conv            = currentNpc.conv;
 
         kop             = currentNpc.kop.sudah;
         kop_valid       = currentNpc.kop.valid;
@@ -114,7 +116,7 @@ public class globalEvent : MonoBehaviour
         stempel_valid   = currentNpc.stempel.valid;
         stempel_asked   = currentNpc.stempel.asked;
 
-        if(Input.GetKeyDown(KeyCode.R)){
+        if(Input.GetKeyDown(KeyCode.RightBracket)){
             ResetData();
             LoadData();
         }
@@ -122,10 +124,6 @@ public class globalEvent : MonoBehaviour
         bool cekVoga=PlayerPrefs.GetInt("voga_check")==1;
         bool cekWater=PlayerPrefs.GetInt("waterion_check")==1;
 
-        // print("voga : " + voga_.check + "\tData "+cekVoga);
-        // print("water : " + waterion_.check +"\tData "+cekWater);
-        // print("isEnding : "+isEnding());
-        // print("good ending : "+goodEnding());
     }
 
     public void StoreData(){
@@ -311,7 +309,7 @@ public class globalEvent : MonoBehaviour
     public void ResetData(){
         //===== global =====
             PlayerPrefs.SetInt("visited", 0);
-            PlayerPrefs.SetInt("global_id", 1);
+            PlayerPrefs.SetInt("global_id", 0);
 
             //posisi
             PlayerPrefs.SetFloat("posX", -2.48f);
@@ -401,7 +399,7 @@ public class globalEvent : MonoBehaviour
     }
 
     public void setGlobalId(){
-        global_id=1;
+        global_id=0;
     } 
 
     public void visiting(){
@@ -417,7 +415,9 @@ public class globalEvent : MonoBehaviour
     public void openProp(){
         if(global_id==1){
             voga_.conv=true;
-        }else if(global_id==1){
+            PlayerPrefs.SetInt("voga_conv", 1);
+        }else if(global_id==2){
+            PlayerPrefs.SetInt("water_conv", 1);
             waterion_.conv=true;
         }else if(global_id==0){
             mino_.conv=true;
