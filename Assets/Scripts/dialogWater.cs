@@ -47,15 +47,17 @@ public class dialogWater : MonoBehaviour
     public int n, m;
 
     void Start(){
+        // handler=GameObject.FindGameObjectWithTag("GameController");
         n=1;
         // dialogBox=GameObject.FindGameObjectWithTag("dialogBox");
-        dialogBox.SetActive(true);
         openProp();
+        dialogBox.SetActive(true);
         opsi1.SetActive(false);
         opsi2.SetActive(false);
     }
     void openProp(){
-        if(PlayerPrefs.GetInt("water_conv")==0){
+        print(handler.GetComponent<globalEvent>().waterion_.conv);
+        if(!handler.GetComponent<globalEvent>().waterion_.conv){
             dialogBox.SetActive(true);
         }else{
             dialogBox.SetActive(false);
@@ -64,7 +66,7 @@ public class dialogWater : MonoBehaviour
     void Update(){
         dialogManual();
         nametag.text="Vierro Waterion";
-        handler=GameObject.FindGameObjectWithTag("GameController");
+        // handler=GameObject.FindGameObjectWithTag("GameController");
     }
 
     void dialogManual(){
