@@ -73,4 +73,6 @@ crashlytics-build.properties
 
 
 Assets/cutscenes/*OPENING*
+Assets/cutscenes/*Bad*
 Assets/Scenes/cutscene1*
+Assets/Scenes/ending*
