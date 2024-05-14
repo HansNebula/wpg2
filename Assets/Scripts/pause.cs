@@ -17,16 +17,24 @@ public class pause : MonoBehaviour
                 if(PlayerPrefs.GetInt("global_id")==1){
                     if(PlayerPrefs.GetInt("voga_conv")==0){
                         if(buttons[i].transform.name=="INSPEKTOR_5"){
+                            print("flase");
                             buttons[i].SetActive(false);
                         }else{
+                            print("true");
                             buttons[i].SetActive(true);
                         }
                     }
                 }else if(PlayerPrefs.GetInt("global_id")==2){
-                    if(PlayerPrefs.GetInt("water_conv")==0){
+                    if(!GetComponent<globalEvent>().currentNpc.conv){
                         if(buttons[i].transform.name=="INSPEKTOR_5"){
+                            print("water false");
                             buttons[i].SetActive(false);
                         }else{
+                            buttons[i].SetActive(true);
+                            print("water true");
+                        }
+                    }else{
+                        if(buttons[i].transform.name=="INSPEKTOR_5"){
                             buttons[i].SetActive(true);
                         }
                     }
