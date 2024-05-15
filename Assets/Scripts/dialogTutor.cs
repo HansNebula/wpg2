@@ -16,7 +16,8 @@ public class dialogTutor : MonoBehaviour
         "Gunakan tombol '<b>D</b>' untuk bergerak ke kanan dan '<b>A</b>' untuk bergerak ke kiri",
         "Meja kerja Anda di sebelah kanan, Tuan Elio",
         "Tekan tombol '<b>E</b>' untuk masuk ke meja",
-        "Meja sihir Anda di sebelah kiri"
+        "<b>Meja sihir</b> berada di sebelah kiri",
+        "Hampiri Aira untuk melakukan <b>Telepati</b>"
     };
     string[] kantor2=new string[]{
         "Selamat Anda telah menguasai kendali dasar pertama Anda",
@@ -72,6 +73,7 @@ public class dialogTutor : MonoBehaviour
         dialogText.text = "";
         isTalking=false;
         dialogBox.SetActive(false);
+        print(currentScene.name);
         m=0;
         if(currentScene.name=="tutorial1"){
             n=0;
@@ -79,6 +81,10 @@ public class dialogTutor : MonoBehaviour
             n=10;
         }else if(currentScene.name=="SceneMeja"){
             n=20;
+        }else if(currentScene.name=="MejaSihir"){
+            n=30;
+        }else if(currentScene.name=="Telepati"){
+            n=40;
         }
         
     }
@@ -111,9 +117,14 @@ public class dialogTutor : MonoBehaviour
                 if(m<2 && PlayerPrefs.GetInt("visited")==0){
                     dialogBox.SetActive(true);
                     StartCoroutine(TypeText(kantor[m], dialogText)); 
-                }else if(PlayerPrefs.GetInt("visited")==1 && PlayerPrefs.GetInt("tahap")==3){
-                    n=30;
-                    m=3;
+                }else if(PlayerPrefs.GetInt("visited")==1){
+                    if(PlayerPrefs.GetInt("tahap")==3){
+                        n=29;
+                        m=3;
+                    }else if(PlayerPrefs.GetInt("tahap")==4){
+                        n=39;
+                        m=4;
+                    }
                 }
                 break;
             case 11: 
@@ -185,11 +196,46 @@ public class dialogTutor : MonoBehaviour
             case 22:
                 PlayerPrefs.SetInt("tahap", 3);
                 break;
-
-            case 30:
-                dialogBox.SetActive(true);
-                StartCoroutine(TypeText(kantor[m], dialogText)); 
+            case 29://instruksi untuk ke meja sihir
+                if(m==3){
+                    dialogBox.SetActive(true);
+                    StartCoroutine(TypeText(kantor[m], dialogText)); 
+                }else{
+                    dialogBox.SetActive(false);
+                }
                 break;
+            case 30://meja sihir
+                if(m<tahap3.Length){
+                    dialogKepala.SetActive(true);
+                    StartCoroutine(TypeText(tahap3[m], textKepala));
+                }else{
+                    dialogKepala.SetActive(false);
+                    n=31;
+                    m=0;
+                }
+                break;
+            case 31:
+                back.GetComponent<Animator>().Play("Highlight");
+                PlayerPrefs.SetInt("tahap", 4);
+                break;
+            case 39:
+                if(m==4){
+                    dialogBox.SetActive(true);
+                    StartCoroutine(TypeText(kantor[m], dialogText)); 
+                }else{
+                    dialogBox.SetActive(false);
+                }
+                break;
+            case 40:
+                if(m<tahap3_tele.Length){
+                    dialogBox.SetActive(true);
+                    StartCoroutine(TypeText(kantor[m], dialogText));
+                }else{
+                    dialogBox.SetActive(false);
+                    PlayerPrefs.SetInt("tahap", 5);
+                }
+                break;
+
         }
     }
     float delay=0.03f;
