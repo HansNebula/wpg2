@@ -15,7 +15,8 @@ public class dialogTutor : MonoBehaviour
     string[] kantor=new string[]{
         "Gunakan tombol '<b>D</b>' untuk bergerak ke kanan dan '<b>A</b>' untuk bergerak ke kiri",
         "Meja kerja Anda di sebelah kanan, Tuan Elio",
-        "Tekan tombol '<b>E</b>' untuk masuk ke meja kerja anda"
+        "Tekan tombol '<b>E</b>' untuk masuk ke meja",
+        "Meja sihir Anda di sebelah kiri"
     };
     string[] kantor2=new string[]{
         "Selamat Anda telah menguasai kendali dasar pertama Anda",
@@ -110,8 +111,9 @@ public class dialogTutor : MonoBehaviour
                 if(m<2 && PlayerPrefs.GetInt("visited")==0){
                     dialogBox.SetActive(true);
                     StartCoroutine(TypeText(kantor[m], dialogText)); 
-                }else{
-                    n=90;
+                }else if(PlayerPrefs.GetInt("visited")==1 && PlayerPrefs.GetInt("tahap")==3){
+                    n=30;
+                    m=3;
                 }
                 break;
             case 11: 
@@ -181,9 +183,13 @@ public class dialogTutor : MonoBehaviour
                 }
                 break;
             case 22:
-                PlayerPrefs.SetInt("tahap2", 1);
+                PlayerPrefs.SetInt("tahap", 3);
                 break;
-            
+
+            case 30:
+                dialogBox.SetActive(true);
+                StartCoroutine(TypeText(kantor[m], dialogText)); 
+                break;
         }
     }
     float delay=0.03f;
