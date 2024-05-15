@@ -7,10 +7,10 @@ public class kantor : MonoBehaviour
     public GameObject scroll;
     public GameObject char_;
     public GameObject blok;
-    
     void Update(){
+        var global=gameObject.GetComponent<globalEvent>();
         visible();
-        if(PlayerPrefs.GetInt("visited")==0){
+        if(global.visited==false && global.isTutorial()){
             blok.SetActive(true);
         }else{
             blok.SetActive(false);
@@ -19,7 +19,7 @@ public class kantor : MonoBehaviour
     void visible(){
         var global=gameObject.GetComponent<globalEvent>();
         scroll.SetActive(global.visited);
-        char_.SetActive(global.visited);
+        char_.SetActive(true);
         if(global.global_id==1){
             if(PlayerPrefs.GetInt("voga_conv")==1){
                 scroll.SetActive(true);

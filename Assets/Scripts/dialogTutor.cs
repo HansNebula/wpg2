@@ -41,9 +41,28 @@ public class dialogTutor : MonoBehaviour
         "Bagian kedua adalah <b>‘Isi’</b> yang berisi latar belakang dan tujuan dari dibuatnya Scroll pengajuan dana ini",
         "Bagian ketiga adalah <b>‘Rincian Dana’</b> yang berisi detail dana yang akan digunakan untuk proyek yang diajukan",
         "Di sini juga ada <b>Refrensi harga</b> rata rata untuk tiap produk yang di dalam Scroll, jadi anda bisa menghitungnya sendiri nanti, apakah rincian dana nya benar atau tidak",
-        "Bagian terakhri adalah </b>‘Tanda tangan dan Stempel resmi’</b> yang berisikan gambar stempel resmi milik daerah bersangkutan dan tanda tangan sah dari pemimpin daerah",
+        "Bagian terakhri adalah <b>‘Tanda tangan dan Stempel resmi’</b> yang berisikan gambar stempel resmi milik daerah bersangkutan dan tanda tangan sah dari pemimpin daerah",
         "Setelah itu kau bisa menginspeksi tiap bagian ini setelah kau baca dan mencari informasi seputar data yang ada dalam proposal itu",
         "Nantinya jika kau merasa datanya sesuai maka <b>‘Terima’</b> kan bagian itu, jika kau merasa ada <b>‘manipulasi data’</b> maka <b>‘Tolak’</b>. dan jika kamu merasa ragu, kamu bisa bertanya pada pengirim Scroll"
+    };
+
+    string[] tahap3=new string[]{
+        "Baik sekarang akan kujelaskan padamu satu per satu tentang benda sihir yang sudah kusiapkan untuk membantu inspeksi",
+        "Pertama adalah <b>‘Codex Search’</b> buku ini adalah sebuah artefak sihir legendaris miliki keluarga Magicius yang diwariskan turun temurun",
+        "Buku ini memiliki kemampuan magis yaitu dia akan memberi anda informasi tentang apapun yang anda tuliskan disana, namun tetap ada batasan dan tidak segalanya dia tau",
+        "Sekarang cobalah tuliskan <b>‘Arcane Essence’</b> disana, karena Tuan Mino menuliskan hal itu dalam Scroll pengajuan dananya",
+        "Jadi setelah anda mendapatkan informasi seputar benda yang dicari, dan datanya cocok dengan yang ada di Scroll proposal, maka berarti datanya sesuai dengan fakta",
+        "Lalu berikutnya adalah <b>Peta Maginesia</b>, ini memang hanya terlihat seperti biasa, namun didalam peta itu sudah kuberi sebuah sihir, coba kau sentuh petanya",
+        "Jadi kau akan mendapatkan informasi dari setiap daerah yang kamu sentuh, informasi itu akan langsung muncul didalam pikiranmu. hehe keren kan sihir milikku",
+        "Jadi kau bisa mencocokan antara data yang ada di daerah dengan yang ada di Scroll, terutama pada bagian <b>‘Stempel dan tanda tangan resmi’</b> pada tiap daerahnya.",
+        "Terakhir adalah ‘Kristal Prekognisi’ benda ini dapat melihat kilasan masa lalu dari seseorang, anda hanya perlu meletakan tangan anda diatasnya, dan menyebutkan nama orangnya.",
+        "Namun kilasan tersebut acak dan aku tidak bisa mengaturnya, satu hal yang aku tau adalah, Kilas masa lalu yang muncul merupakan momentum penting yang terjadi di hidup orang itu",
+        "Untuk saat ini Kristal Prekognisi belum bisa digunakan, jika sudah bisa aku akan segera mengabari anda, jadi sekarang mari kembali menginspeksi semua bagian Scroll dahulu",
+        "Oh iya tuan Elions, ada satu hal lagi yang ingin kusampaikan padamu sebelum kamu kembali ke meja inspeksi, mendekatlah padaku"
+    };
+    string[] tahap3_tele=new string[]{
+        "Telepatiku ini juga bisa digunakan untuk mengubungi orang bersangkutan yang tertulis di <b>Scroll</b>, anda hanya perlu memberitau saya <b>‘Code Telepati’</b> yang tertulis disana",
+        "Sekarang masukan kode telepati yang tertulis di proposal itu"
     };
 
     void Start(){
