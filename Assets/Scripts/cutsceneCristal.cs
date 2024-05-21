@@ -17,6 +17,7 @@ public class cutsceneCristal : MonoBehaviour
     void Update(){
         if(global.global_id==0){
             vid.clip=tutorClip;
+            PlayerPrefs.SetInt("tahap", 7);
         }else if(global.global_id==1){
             vid.clip=vogaClip;
         }else if(global.global_id==2){

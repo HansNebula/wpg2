@@ -323,7 +323,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b3eaa88b103a2d49b4943209d5dc4b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTutorial: 0
   global_id: 0
   audio: 0
   music: 0
@@ -336,6 +335,7 @@ MonoBehaviour:
   buttonProp: 0
   visited: 0
   currentId: 0
+  conv: 0
   kop: 0
   kop_valid: 0
   kop_asked: 0
@@ -362,7 +362,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   global: {fileID: 0}
   vid: {fileID: 270020870}
-  tutorClip: {fileID: 32900000, guid: 952b5afdb9c2353429d5103275fd2b64, type: 3}
+  tutorClip: {fileID: 32900000, guid: 4451a46c43da668479563820616eb5cf, type: 3}
   vogaClip: {fileID: 32900000, guid: 76385eb917c83e244a3229a8c517d525, type: 3}
   waterClip: {fileID: 32900000, guid: 287da2eea3349c54b9c1627f247c4ec9, type: 3}
 --- !u!1 &555117672

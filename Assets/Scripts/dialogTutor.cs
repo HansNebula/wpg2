@@ -19,7 +19,8 @@ public class dialogTutor : MonoBehaviour
         "<b>Meja sihir</b> berada di sebelah kiri",
         "Hampiri Aira untuk melakukan <b>Telepati</b>",
         "Kembali ke <b>Meja Inspeksi</b>",
-        "Hampiri <b>Meja Sihir</b> untuk mengaktifkan <b>Kristal Prekognisi</b>"
+        "Hampiri <b>Meja Sihir</b> untuk mengaktifkan <b>Kristal Prekognisi</b>",
+        "Kembali ke <b>Meja Inspeksi</b> untuk mengambil keputusan proposal"
     };
     string[] kantor2=new string[]{
         "Selamat Anda telah menguasai kendali dasar pertama Anda",
@@ -79,6 +80,16 @@ public class dialogTutor : MonoBehaviour
     string[] tahap4=new string[]{
         "Tuan Elions, sepertinya <b>Kristal Prekognisi</b> sudah siap untuk digunakan, sekarang ayo coba sentuh kristalnya dan sebutkan nama tuan Mino Taurinus dipikiran anda",
         "Silakan menuju <b>Meja Sihir</b>"
+    };
+
+    string[] tahap4_kristal=new string[]{
+        "Gunakan <b>Kristal Prekognisi</b>",
+        "Setelah melihat kilas balik tadi, silakan kembali ke <b>Meja Inspeksi</b>",
+        "Dari kilas balik tadi, saya rasa kita bisa menyimpulkan bahwa proposal yang diajukan ini harus kita tolak"
+    };
+
+    string[] tahap5=new string[]{
+        "Buka proposal dan pilih tolak"
     };
 
     void Start(){
@@ -148,6 +159,9 @@ public class dialogTutor : MonoBehaviour
                     }else if(PlayerPrefs.GetInt("tahap")==6){
                         n=59;
                         m=6;
+                    }else if(PlayerPrefs.GetInt("tahap")==6){
+                        n=69;
+                        m=7;
                     }
                 }
                 break;
@@ -180,6 +194,8 @@ public class dialogTutor : MonoBehaviour
                     if(PlayerPrefs.GetInt("tahap")==5){
                         n=50;
                         m=0;
+                    }else if(PlayerPrefs.GetInt("tahap")==7){
+                        n=70;
                     }else{
                         n=21;
                     }
@@ -247,8 +263,13 @@ public class dialogTutor : MonoBehaviour
                         n=31;
                         m=0;
                     }
-                }
-                else{
+                }else if(PlayerPrefs.GetInt("tahap")==6){
+                    n=60;
+                    m=0;
+                }else if(PlayerPrefs.GetInt("tahap")==7){
+                    n=61;
+                    m=1;
+                }else{
                     dialogKepala.SetActive(false);
                 }
                 break;
@@ -315,16 +336,47 @@ public class dialogTutor : MonoBehaviour
                         //animasi tombol keluar
                     }
                 break;
-            case 59:
-              
-                    if(m==6){
-                        dialogBox.SetActive(true);
-                        StartCoroutine(TypeText(kantor[m], dialogText)); 
-                    }else{
-                        dialogBox.SetActive(false);
-                    }
+            case 59://kantor ke meja sihir
+                if(m==6){
+                    dialogBox.SetActive(true);
+                    StartCoroutine(TypeText(kantor[m], dialogText)); 
+                }else{
+                    dialogBox.SetActive(false);
+                }
             
                break;
+            case 60:
+                if(m==0){
+                    dialogKepala.SetActive(true);
+                    StartCoroutine(TypeText(tahap4_kristal[m], textKepala));
+                }else{
+                    dialogKepala.SetActive(false);
+                }
+                break;
+            case 61:
+                if(m<tahap4_kristal.Length){
+                    dialogKepala.SetActive(true);
+                    StartCoroutine(TypeText(tahap4_kristal[m], textKepala));
+                }else{
+                    dialogKepala.SetActive(false);
+                }
+                break;
+            case 69: //kantor ke meja inspeksi dari m sihir
+                if(m==7){
+                    dialogBox.SetActive(true);
+                    StartCoroutine(TypeText(kantor[m], dialogText)); 
+                }else{
+                    dialogBox.SetActive(false);
+                }
+                break;
+            case 70:
+                if(m==0){
+                    dialogKepala.SetActive(true);
+                    StartCoroutine(TypeText(tahap4_kristal[m], textKepala));
+                }else{
+                    dialogKepala.SetActive(false);
+                }
+                break;
         }
     }
     float delay=0.03f;
