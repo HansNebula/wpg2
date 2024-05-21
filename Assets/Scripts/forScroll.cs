@@ -88,6 +88,25 @@ public class forScroll : MonoBehaviour
     //Perdataan
     void StoreData(){
         switch(id){
+            case 0 ://mino
+                handler.GetComponent<globalEvent>().mino_.presentase=presentase;
+                if(kop.GetComponent<verify>().isCek){//kop
+                    handler.GetComponent<globalEvent>().mino_.kop.valid=kop.GetComponent<verify>().isValid;
+                    handler.GetComponent<globalEvent>().mino_.kop.sudah=true;
+                }
+                if(latarBelakang.GetComponent<verify>().isCek){//lb
+                    handler.GetComponent<globalEvent>().mino_.lb.valid=latarBelakang.GetComponent<verify>().isValid;
+                    handler.GetComponent<globalEvent>().mino_.lb.sudah=true;
+                }
+                if(dana.GetComponent<verify>().isCek){//dana
+                    handler.GetComponent<globalEvent>().mino_.dana.valid=dana.GetComponent<verify>().isValid;
+                    handler.GetComponent<globalEvent>().mino_.dana.sudah=true;
+                }
+                if(instansi.GetComponent<verify>().isCek){//stempel
+                    handler.GetComponent<globalEvent>().mino_.stempel.valid=instansi.GetComponent<verify>().isValid;
+                    handler.GetComponent<globalEvent>().mino_.stempel.sudah=true;
+                }
+                break;
             case 1 ://voga
                 handler.GetComponent<globalEvent>().voga_.presentase=presentase;
                 if(kop.GetComponent<verify>().isCek){//kop

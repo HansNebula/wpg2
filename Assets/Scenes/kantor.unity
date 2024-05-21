@@ -4067,7 +4067,7 @@ MonoBehaviour:
   getnpc: {fileID: 0}
   id: 0
   spProp:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: d208a83fd302a9a4dbe49495aa92a50b, type: 3}
   - {fileID: 21300000, guid: 0cafa5d11ffff6f49a7d6e8c50faa104, type: 3}
   - {fileID: 6599392134709368347, guid: 79f2ac0c4499c754ead9abeeec4de243, type: 3}
   - {fileID: 0}
@@ -4080,7 +4080,7 @@ MonoBehaviour:
   - {fileID: -4353006738993776474, guid: 65b2f9d0c3c983e4584b1c9a3e8225b9, type: 3}
   - {fileID: 6271245517665507106, guid: 65b2f9d0c3c983e4584b1c9a3e8225b9, type: 3}
   hargaSp:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: ca594cc918bb64042b93fe9340ac9838, type: 3}
   - {fileID: 21300000, guid: ae6acca777c698348abfd856a43eb1f3, type: 3}
   - {fileID: 21300000, guid: 6075da1b88300a747890bb1b0d6e824d, type: 3}
   - {fileID: 0}

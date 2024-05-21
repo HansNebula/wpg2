@@ -20,6 +20,9 @@ public class getNPC : MonoBehaviour
         }else if(id==2){
             //waterion
             npc.GetComponent<dialogWater>().nextDialog();
+        }else if(id==0){
+            //waterion
+            npc.GetComponent<dialogMino>().nextDialog();
         }
     }
 
@@ -31,6 +34,8 @@ public class getNPC : MonoBehaviour
         }else if(id==2){
             //waterion
             npc.GetComponent<dialogWater>().switchToCase(value);
+        }else if(id==0){//mino
+            npc.GetComponent<dialogMino>().switchToCase(value);
         }
     }
 }

@@ -41,7 +41,9 @@ public class telepati : MonoBehaviour
 
     void Start(){
         n=0;
-        dialogText.text="Masukan Kode Telepati untuk mencari Narahubung";
+        if(PlayerPrefs.GetInt("global_id")!=0){
+            dialogText.text="Masukan Kode Telepati untuk mencari Narahubung";
+        }
     }
     void Update(){
         if(menginformasi){
@@ -116,22 +118,30 @@ public class telepati : MonoBehaviour
                 if(m<redhorn.Length){
                     nextButton.SetActive(true);
                     dialogText.text=redhorn[m];
+                    PlayerPrefs.SetInt("tele_d", 0);
                 }else{
                     dialogText.text="<i>*Narahubung meninggalkan telepati</i>";
                     nextButton.SetActive(false);
                     menginformasi=false;
                     anim.Play("aira_telepati 0");
+                    if(PlayerPrefs.GetInt("global_id")==0){
+                        PlayerPrefs.SetInt("tele_d", 1);
+                    }
                 }
                 break;
             case 4:
                 if(m<redroot.Length){
                     nextButton.SetActive(true);
                     dialogText.text=redroot[m];
+                    PlayerPrefs.SetInt("tele_d", 0);
                 }else{
                     dialogText.text="<i>*Narahubung meninggalkan telepati</i>";
                     nextButton.SetActive(false);
                     menginformasi=false;
                     anim.Play("aira_telepati 0");
+                    if(PlayerPrefs.GetInt("global_id")==0){
+                        PlayerPrefs.SetInt("tele_d", 1);
+                    }
                 }
                 break;
         }

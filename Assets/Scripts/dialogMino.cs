@@ -10,17 +10,15 @@ public class dialogMino : MonoBehaviour
     public Text nametag, dialogText;
     public GameObject opsi1, opsi2;
     string[] greetings=new string[]{
-        "Saya Orchirus Voragoths dari Distrik Shadowgale di daerah Glomynesia dan menjadi perwakilan atas Yayasan Amal Voragoraths",
-        "Saya ingin mengajukan Scroll Proposal untuk pendanaan, saya berharap Proposal saya bisa diterima"
+        "Saya Mino Taurinus, bendahara dari Redleaf Herbal Healt. kepentingan saya di sini adalah mengikuti peraturan baru raja yaitu mengajukan Scroll pengajuan dana proyek"
     };
     string[] kop=new string[]{
-        "Apakah ada kesalahan di Kop Scroll Proposal ini?",
-        "Hmmm Maaf, tapi kurasa tidak ada yang salah disini"
+        "Kesalahan pada bagian KOP Scroll pengajuan dana ini? Hmmm kurasa tidak ada yang salah disini"
     };
 
     string[] lb=new string[]{
-        "Ketika warga desa Swampea sedang terlelap, Monster rawa bernama Murk Mauler menyerang desa itu. banyak orang dewasa tewas karena insiden itu, dan membuat para anak anak disana menjadi terlantar",
-        "Sekitar 2 atau 3 hari lalu, maka dari itu saya sesegera mungkin mencari bantuan dana untuk membantu anak anak disana",
+        "Kebakaran terjadi tanpa sebab yang jelas, penyidikan juga masih berlangsung. Saya mengajukan ini agar renovasi gudang obat herbal segera bisa dilakukan.",
+        "itu terjadi 3 hari yang lalu, kemungkinan saat malam hari karena gudang terbakar saat ada dalam keberadaan kosong",
         "Para Orc sudah menyegel Murk Mauler lebih dari 25 tahun, sepertinya ada oknum yang merusak segel itu dan sengaja membebaskannya"
     };
     string[] dana=new string[]{
@@ -50,7 +48,7 @@ public class dialogMino : MonoBehaviour
     }
     void Update(){
         dialogManual();
-        nametag.text="Orchirus Voragoraths";
+        nametag.text="Mino Taurinus";
         handler=GameObject.FindGameObjectWithTag("GameController");
     }
     void openProp(){

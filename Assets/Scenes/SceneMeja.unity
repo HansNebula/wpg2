@@ -3136,6 +3136,7 @@ GameObject:
   - component: {fileID: 508738388}
   - component: {fileID: 508738391}
   - component: {fileID: 508738389}
+  - component: {fileID: 508738390}
   m_Layer: 0
   m_Name: 0
   m_TagString: npc
@@ -3170,6 +3171,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+--- !u!114 &508738390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508738387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d7df0b4b53d6a14abc2bdc9ac5abd77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogBox: {fileID: 564163814}
+  handler: {fileID: 1456259294}
+  anim: {fileID: 0}
+  nametag: {fileID: 331175889}
+  dialogText: {fileID: 248585758}
+  opsi1: {fileID: 1226437963}
+  opsi2: {fileID: 376480211}
+  n: 0
+  m: 0
 --- !u!212 &508738391
 SpriteRenderer:
   m_ObjectHideFlags: 0

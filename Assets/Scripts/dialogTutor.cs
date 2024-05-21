@@ -14,10 +14,12 @@ public class dialogTutor : MonoBehaviour
     bool isTalking=true;
     string[] kantor=new string[]{
         "Gunakan tombol '<b>D</b>' untuk bergerak ke kanan dan '<b>A</b>' untuk bergerak ke kiri",
-        "Meja kerja Anda di sebelah kanan, Tuan Elio",
+        "<b>Meja Inspeksi</b> berada di sebelah kanan, Tuan Elio",
         "Tekan tombol '<b>E</b>' untuk masuk ke meja",
         "<b>Meja sihir</b> berada di sebelah kiri",
-        "Hampiri Aira untuk melakukan <b>Telepati</b>"
+        "Hampiri Aira untuk melakukan <b>Telepati</b>",
+        "Kembali ke <b>Meja Inspeksi</b>",
+        "Hampiri <b>Meja Sihir</b> untuk mengaktifkan <b>Kristal Prekognisi</b>"
     };
     string[] kantor2=new string[]{
         "Selamat Anda telah menguasai kendali dasar pertama Anda",
@@ -57,14 +59,26 @@ public class dialogTutor : MonoBehaviour
         "Lalu berikutnya adalah <b>Peta Maginesia</b>, ini memang hanya terlihat seperti biasa, namun didalam peta itu sudah kuberi sebuah sihir, coba kau sentuh petanya",
         "Jadi kau akan mendapatkan informasi dari setiap daerah yang kamu sentuh, informasi itu akan langsung muncul didalam pikiranmu. hehe keren kan sihir milikku",
         "Jadi kau bisa mencocokan antara data yang ada di daerah dengan yang ada di Scroll, terutama pada bagian <b>‘Stempel dan tanda tangan resmi’</b> pada tiap daerahnya.",
-        "Terakhir adalah ‘Kristal Prekognisi’ benda ini dapat melihat kilasan masa lalu dari seseorang, anda hanya perlu meletakan tangan anda diatasnya, dan menyebutkan nama orangnya.",
+        "Terakhir adalah <b>‘Kristal Prekognisi’</b> benda ini dapat melihat kilasan masa lalu dari seseorang, anda hanya perlu meletakan tangan anda diatasnya, dan menyebutkan nama orangnya.",
         "Namun kilasan tersebut acak dan aku tidak bisa mengaturnya, satu hal yang aku tau adalah, Kilas masa lalu yang muncul merupakan momentum penting yang terjadi di hidup orang itu",
         "Untuk saat ini Kristal Prekognisi belum bisa digunakan, jika sudah bisa aku akan segera mengabari anda, jadi sekarang mari kembali menginspeksi semua bagian Scroll dahulu",
         "Oh iya tuan Elions, ada satu hal lagi yang ingin kusampaikan padamu sebelum kamu kembali ke meja inspeksi, mendekatlah padaku"
     };
     string[] tahap3_tele=new string[]{
-        "Telepatiku ini juga bisa digunakan untuk mengubungi orang bersangkutan yang tertulis di <b>Scroll</b>, anda hanya perlu memberitau saya <b>‘Code Telepati’</b> yang tertulis disana",
-        "Sekarang masukan kode telepati yang tertulis di proposal itu"
+        "Telepatiku ini juga bisa digunakan untuk mengubungi orang bersangkutan yang tertulis di <b>Scroll</b>, anda hanya perlu memberitahu saya <b>‘Code Telepati’</b> yang tertulis disana",
+        "Sekarang masukan kode telepati yang tertulis di proposal itu",
+        "jika anda lupa, kodenya adalah <b>Redhorn</b>",
+        "Oke sekarang anda bisa kembali ke Meja Inspeksi, Tuan Elions\nTanyakan terkait proposal kepada Tuan Mino"
+    };
+
+    string[] tahap3_teleEnd=new string[]{
+        "Baiklah. Sepertinya semua panduan menjadi inspektur sudah saya sampaikan, sekarang anda harus mencoba semuanya sendiri tuan Elions",
+        "Tenang saya akan tetap ada disini menemani anda selalu, saya hanya ingin fokus untuk mengaktifkan kristal Prekognisi ini agar bisa digunakan"
+    };
+
+    string[] tahap4=new string[]{
+        "Tuan Elions, sepertinya <b>Kristal Prekognisi</b> sudah siap untuk digunakan, sekarang ayo coba sentuh kristalnya dan sebutkan nama tuan Mino Taurinus dipikiran anda",
+        "Silakan menuju <b>Meja Sihir</b>"
     };
 
     void Start(){
@@ -85,12 +99,15 @@ public class dialogTutor : MonoBehaviour
             n=30;
         }else if(currentScene.name=="Telepati"){
             n=40;
+            PlayerPrefs.SetInt("tele_d", 0);
         }
         
     }
     void Update(){
-        handler=GameObject.FindGameObjectWithTag("GameController");
+        // handler=GameObject.FindGameObjectWithTag("GameController");
         if(handler.GetComponent<globalEvent>().isTutorial()){
+            print("tahap :"+PlayerPrefs.GetInt("tahap"));
+
             if (!isTalking){
                 dialogManual();
             }
@@ -117,6 +134,7 @@ public class dialogTutor : MonoBehaviour
                 if(m<2 && PlayerPrefs.GetInt("visited")==0){
                     dialogBox.SetActive(true);
                     StartCoroutine(TypeText(kantor[m], dialogText)); 
+                    PlayerPrefs.SetInt("tahap", 2);
                 }else if(PlayerPrefs.GetInt("visited")==1){
                     if(PlayerPrefs.GetInt("tahap")==3){
                         n=29;
@@ -124,6 +142,12 @@ public class dialogTutor : MonoBehaviour
                     }else if(PlayerPrefs.GetInt("tahap")==4){
                         n=39;
                         m=4;
+                    }else if(PlayerPrefs.GetInt("tahap")==5){
+                        n=49;
+                        m=5;
+                    }else if(PlayerPrefs.GetInt("tahap")==6){
+                        n=59;
+                        m=6;
                     }
                 }
                 break;
@@ -152,45 +176,54 @@ public class dialogTutor : MonoBehaviour
                     nametag.text="Mino Taurinus";
                 }else{
                     dialogBox.SetActive(false);
-                    n=21;
                     m=0;
+                    if(PlayerPrefs.GetInt("tahap")==5){
+                        n=50;
+                        m=0;
+                    }else{
+                        n=21;
+                    }
                 }
                 break;
             case 21: 
-                if(m==0){
-                    dialogKepala.SetActive(true);
-                    StartCoroutine(TypeText(tahap2[0], textKepala));
-                    
-                }else if(m==1){
-                    dialogKepala.SetActive(false);
-                    //animasi untuk buka proposal di sini
-                }else if(m==2){
-                    dialogKepala.SetActive(true);
-                    StartCoroutine(TypeText(tahap2[m-1], textKepala));
-                    //highlight kop
-                }else if(m==3){
-                    dialogKepala.SetActive(true);
-                    StartCoroutine(TypeText(tahap2[m-1], textKepala));
-                    //highlight isi
-                }else if(m==4){
-                    dialogKepala.SetActive(true);
-                    StartCoroutine(TypeText(tahap2[m-1], textKepala));
-                    //highlight dana
-                }else if(m==5){
-                    dialogKepala.SetActive(true);
-                    StartCoroutine(TypeText(tahap2[m-1], textKepala));
-                    //highlight harga
-                }else if(m==6){
-                    dialogKepala.SetActive(true);
-                    StartCoroutine(TypeText(tahap2[m-1], textKepala));
-                    //highlight stempel
-                }else if(m==7 || m==8){
-                    dialogKepala.SetActive(true);
-                    StartCoroutine(TypeText(tahap2[m-1], textKepala));
+                if(PlayerPrefs.GetInt("tahap")<6){  
+                    if(m==0){
+                        dialogKepala.SetActive(true);
+                        StartCoroutine(TypeText(tahap2[0], textKepala));
+                        
+                    }else if(m==1){
+                        dialogKepala.SetActive(false);
+                        //animasi untuk buka proposal di sini
+                    }else if(m==2){
+                        dialogKepala.SetActive(true);
+                        StartCoroutine(TypeText(tahap2[m-1], textKepala));
+                        //highlight kop
+                    }else if(m==3){
+                        dialogKepala.SetActive(true);
+                        StartCoroutine(TypeText(tahap2[m-1], textKepala));
+                        //highlight isi
+                    }else if(m==4){
+                        dialogKepala.SetActive(true);
+                        StartCoroutine(TypeText(tahap2[m-1], textKepala));
+                        //highlight dana
+                    }else if(m==5){
+                        dialogKepala.SetActive(true);
+                        StartCoroutine(TypeText(tahap2[m-1], textKepala));
+                        //highlight harga
+                    }else if(m==6){
+                        dialogKepala.SetActive(true);
+                        StartCoroutine(TypeText(tahap2[m-1], textKepala));
+                        //highlight stempel
+                    }else if(m==7 || m==8){
+                        dialogKepala.SetActive(true);
+                        StartCoroutine(TypeText(tahap2[m-1], textKepala));
+                    }else{
+                        dialogKepala.SetActive(false);
+                        n=22;
+                        m=0;
+                    }
                 }else{
-                    dialogKepala.SetActive(false);
-                    n=22;
-                    m=0;
+                    n=50;
                 }
                 break;
             case 22:
@@ -205,13 +238,18 @@ public class dialogTutor : MonoBehaviour
                 }
                 break;
             case 30://meja sihir
-                if(m<tahap3.Length){
-                    dialogKepala.SetActive(true);
-                    StartCoroutine(TypeText(tahap3[m], textKepala));
-                }else{
+                if(PlayerPrefs.GetInt("tahap")<5){
+                    if(m<tahap3.Length){
+                        dialogKepala.SetActive(true);
+                        StartCoroutine(TypeText(tahap3[m], textKepala));
+                    }else{
+                        dialogKepala.SetActive(false);
+                        n=31;
+                        m=0;
+                    }
+                }
+                else{
                     dialogKepala.SetActive(false);
-                    n=31;
-                    m=0;
                 }
                 break;
             case 31:
@@ -226,16 +264,67 @@ public class dialogTutor : MonoBehaviour
                     dialogBox.SetActive(false);
                 }
                 break;
-            case 40:
-                if(m<tahap3_tele.Length){
-                    dialogBox.SetActive(true);
-                    StartCoroutine(TypeText(kantor[m], dialogText));
+            case 40://tele
+                if(m<tahap3_tele.Length-1){
+                    // dialogBox.SetActive(true);
+                    StartCoroutine(TypeText(tahap3_tele[m], dialogText));
                 }else{
                     dialogBox.SetActive(false);
-                    PlayerPrefs.SetInt("tahap", 5);
+                    nextButton.SetActive(false);
+                    n=41;
+                    m=0;
+                    PlayerPrefs.SetInt("tele_d", 0);
                 }
                 break;
+            case 41:
+                if(PlayerPrefs.GetInt("tele_d")==1){
+                    StartCoroutine(TypeText(tahap3_tele[3], dialogText));
+                    PlayerPrefs.SetInt("tahap", 5);
+                    n=42;
+                    m=0;
+                }
+                break;
+            case 42: 
+                if(m<tahap3_teleEnd.Length+1){
+                    StartCoroutine(TypeText(tahap3_teleEnd[m-1], dialogText));
+                }else{
 
+                }
+                break;
+            case 49://di kantor menuju meja inspeksi
+                if(m==5){
+                    dialogBox.SetActive(true);
+                    StartCoroutine(TypeText(kantor[m], dialogText)); 
+                }else{
+                    dialogBox.SetActive(false);
+                }
+                break;
+            case 50://kembali di meja proposal
+                var globalEvent=handler.GetComponent<globalEvent>();
+                if(globalEvent.mino_.kop.sudah && globalEvent.mino_.lb.sudah && globalEvent.mino_.dana.sudah && globalEvent.mino_.stempel.sudah){
+                    dialogKepala.SetActive(true);
+                    m=0;
+                    n=51;
+                }
+                break;
+            case 51:
+                if(m<tahap4.Length){
+                        StartCoroutine(TypeText(tahap4[m], textKepala));
+                        PlayerPrefs.SetInt("tahap", 6);
+                    }else{
+                        //animasi tombol keluar
+                    }
+                break;
+            case 59:
+              
+                    if(m==6){
+                        dialogBox.SetActive(true);
+                        StartCoroutine(TypeText(kantor[m], dialogText)); 
+                    }else{
+                        dialogBox.SetActive(false);
+                    }
+            
+               break;
         }
     }
     float delay=0.03f;

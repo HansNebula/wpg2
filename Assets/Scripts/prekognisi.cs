@@ -21,8 +21,17 @@ public class prekognisi : MonoBehaviour
     }
 
     public void prekognisiFunc(){
-        print(globalEvent.voga_.kop.sudah+" "+globalEvent.voga_.lb.sudah+" "+globalEvent.voga_.dana.sudah+" "+globalEvent.voga_.stempel.sudah);
+        print(globalEvent.mino_.kop.sudah+" "+globalEvent.mino_.lb.sudah+" "+globalEvent.mino_.dana.sudah+" "+globalEvent.mino_.stempel.sudah);
         switch(globalEvent.global_id){
+            case 0:
+                if(globalEvent.mino_.kop.sudah && globalEvent.mino_.lb.sudah && globalEvent.mino_.dana.sudah && globalEvent.mino_.stempel.sudah){
+                    opsi.SetActive(true);
+                    opsiText.text="Apakah anda ingin melihat masa lalu Mino Taurinus?";
+                }else{
+                    opsi.SetActive(false);
+                    warning.SetActive(true);
+                }
+                break;
             case 1:
                 if(globalEvent.voga_.kop.sudah && globalEvent.voga_.lb.sudah && globalEvent.voga_.dana.sudah && globalEvent.voga_.stempel.sudah){
                     opsi.SetActive(true);
