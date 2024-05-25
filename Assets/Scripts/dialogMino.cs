@@ -19,17 +19,16 @@ public class dialogMino : MonoBehaviour
     string[] lb=new string[]{
         "Kebakaran terjadi tanpa sebab yang jelas, penyidikan juga masih berlangsung. Saya mengajukan ini agar renovasi gudang obat herbal segera bisa dilakukan.",
         "itu terjadi 3 hari yang lalu, kemungkinan saat malam hari karena gudang terbakar saat ada dalam keberadaan kosong",
-        "Para Orc sudah menyegel Murk Mauler lebih dari 25 tahun, sepertinya ada oknum yang merusak segel itu dan sengaja membebaskannya"
+        "Untuk sekarang sepertinya belum karena bukti di lokasi kejadian sangatlah sedikit, namun jika ada perkembangan akan segera saya sampaikan pada anda tuan"
     };
     string[] dana=new string[]{
-        "Dengan Batuan Darkhold, dibutuhkan untuk perlindungan bangunan dan orang didalamnya, kayu firefly digunakan karena aura hangat yang dipancarkan sangat diperlukan karena daerah dekat rawa sangat dingin",
-        "Tidak ada, karena 70% dana sudah ditanggung oleh yayasan, jadi ini hanya seperti dana tambahan saja. jika pendanaan ini diterima maka Yayasan bisa membangun tempat penampungan yang lebih layak dan bagus",
-        "Orc tidak memiliki budaya mencatat dan menulis rincian seperti itu, kami lebih suka mengingat ingat saja karena itu ingatan Orc sangat tajam.",
-        "Namun saya usahakan akan ada tranparasi penggunaan dana tertulis untuk menghormati kerajaan yang memberi kami bantuan"
+        "Tentu saja, kristal frostglow memancarkan aura dingin yang pas untuk menyimpan obat, dan kayu winterpine dapat menahan suhu dingin itu agar tidak tersebar",
+        "Sepertinya akan ada tuan, guna memberikan pengamanan ekstra agar kejadian serupa tidak terjadi lagi kedepannya. saya harap tuan Elions mau bekerja sama lagi nantinya",
+        "Hmmm... Saya ragu untuk menjawabnya, namun biasanya nyonya Kalsia akan memberikannya dari dana darurat, jika ada insiden yang terjadi di apotek."
     };
 
     string[] stempel=new string[]{
-        "Nyonya Evelyn sudah menyetujui pengajuan dana ini, karena dia juga mengecek tempat kejadian secara langsung. Jadi Stempel dan Tanda Tangan ini adalah asli"
+        "Tidak ada tanda tangan dari pemimpin daerah? Ah maaf saya sepertinya lupa, setelah Scroll ini kalian terima, saya akan meminta tanda tangan tuan Luxius."
     };
 
     string[] decision=new string[]{

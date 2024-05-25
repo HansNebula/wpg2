@@ -11,6 +11,7 @@ public class dialogTutor : MonoBehaviour
     public Text nametag, dialogText, textKepala;
     public GameObject back, pause, prop;
     public int n, m;
+    public Animator animBuku, animBola, animPeta;
     bool isTalking=true;
     string[] kantor=new string[]{
         "Gunakan tombol '<b>D</b>' untuk bergerak ke kanan dan '<b>A</b>' untuk bergerak ke kiri",
@@ -117,11 +118,14 @@ public class dialogTutor : MonoBehaviour
     void Update(){
         // handler=GameObject.FindGameObjectWithTag("GameController");
         if(handler.GetComponent<globalEvent>().isTutorial()){
-            print("tahap :"+PlayerPrefs.GetInt("tahap"));
+            print("tahap :"+PlayerPrefs.GetInt("tahap")+"\tn: "+n);
 
             if (!isTalking){
                 dialogManual();
             }
+        }else{
+            this.enabled = false;
+            dialogKepala.SetActive(false);
         }
     }
 
@@ -159,7 +163,7 @@ public class dialogTutor : MonoBehaviour
                     }else if(PlayerPrefs.GetInt("tahap")==6){
                         n=59;
                         m=6;
-                    }else if(PlayerPrefs.GetInt("tahap")==6){
+                    }else if(PlayerPrefs.GetInt("tahap")==7 || PlayerPrefs.GetInt("tahap")==8){
                         n=69;
                         m=7;
                     }
@@ -194,7 +198,7 @@ public class dialogTutor : MonoBehaviour
                     if(PlayerPrefs.GetInt("tahap")==5){
                         n=50;
                         m=0;
-                    }else if(PlayerPrefs.GetInt("tahap")==7){
+                    }else if(PlayerPrefs.GetInt("tahap")==7 || PlayerPrefs.GetInt("tahap")==8){
                         n=70;
                     }else{
                         n=21;
@@ -258,6 +262,17 @@ public class dialogTutor : MonoBehaviour
                     if(m<tahap3.Length){
                         dialogKepala.SetActive(true);
                         StartCoroutine(TypeText(tahap3[m], textKepala));
+                        if(m==1){
+                            animBuku.Play("poping");//animasi buku
+                        }else if(m==2){
+                            animBuku.Play("New State");
+                        }else if(m==3){
+                            animBuku.Play("poping");//animasi buku
+                        }else if(m==5){
+                            animPeta.Play("petaPop");//animasi peta
+                        }else if(m==8){
+                            animBola.Play("bolaPop");//animasi bola sihir
+                        }
                     }else{
                         dialogKepala.SetActive(false);
                         n=31;
@@ -324,8 +339,14 @@ public class dialogTutor : MonoBehaviour
                 var globalEvent=handler.GetComponent<globalEvent>();
                 if(globalEvent.mino_.kop.sudah && globalEvent.mino_.lb.sudah && globalEvent.mino_.dana.sudah && globalEvent.mino_.stempel.sudah){
                     dialogKepala.SetActive(true);
-                    m=0;
-                    n=51;
+                    handler.GetComponent<forScroll>().scroll.SetActive(false);
+                    if(PlayerPrefs.GetInt("tahap")!=5){
+                        m=0;
+                        n=51;
+                    }else if(PlayerPrefs.GetInt("tahap")==8){
+                        n=70;
+                        m=0;
+                    }
                 }
                 break;
             case 51:
@@ -359,6 +380,7 @@ public class dialogTutor : MonoBehaviour
                     StartCoroutine(TypeText(tahap4_kristal[m], textKepala));
                 }else{
                     dialogKepala.SetActive(false);
+                    PlayerPrefs.SetInt("tahap", 8);
                 }
                 break;
             case 69: //kantor ke meja inspeksi dari m sihir
@@ -370,12 +392,12 @@ public class dialogTutor : MonoBehaviour
                 }
                 break;
             case 70:
-                if(m==0){
-                    dialogKepala.SetActive(true);
-                    StartCoroutine(TypeText(tahap4_kristal[m], textKepala));
-                }else{
-                    dialogKepala.SetActive(false);
-                }
+                // if(m==0){
+                //     dialogKepala.SetActive(true);
+                //     StartCoroutine(TypeText(tahap4_kristal[m], textKepala));
+                // }else{
+                //     dialogKepala.SetActive(false);
+                // }
                 break;
         }
     }

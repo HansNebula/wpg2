@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class forScroll : MonoBehaviour
 {
@@ -30,6 +31,10 @@ public class forScroll : MonoBehaviour
         id=PlayerPrefs.GetInt("global_id");
         StoreData();
         LoadData();
+        Scene currentScene=SceneManager.GetActiveScene();
+        if(currentScene.name!="SceneMeja"){
+            decision.SetActive(false);
+        }
     }
     //==========================================================================
 
@@ -151,6 +156,26 @@ public class forScroll : MonoBehaviour
 
     void LoadData(){
         switch(id){
+            case 0 ://
+                presentase=handler.GetComponent<globalEvent>().mino_.presentase=presentase;
+                openProp=handler.GetComponent<globalEvent>().mino_.conv;
+                if(handler.GetComponent<globalEvent>().mino_.kop.sudah){//kop
+                    kop.GetComponent<verify>().isValid = handler.GetComponent<globalEvent>().mino_.kop.valid;
+                    kop.GetComponent<verify>().isCek=true;
+                }
+                if(handler.GetComponent<globalEvent>().mino_.lb.sudah){//lb
+                    latarBelakang.GetComponent<verify>().isValid = handler.GetComponent<globalEvent>().mino_.lb.valid;
+                    latarBelakang.GetComponent<verify>().isCek=true;
+                }
+                if(handler.GetComponent<globalEvent>().mino_.dana.sudah){//dana
+                    dana.GetComponent<verify>().isValid = handler.GetComponent<globalEvent>().mino_.dana.valid;
+                    dana.GetComponent<verify>().isCek=true;
+                }
+                if(handler.GetComponent<globalEvent>().mino_.stempel.sudah){//stempel
+                    instansi.GetComponent<verify>().isValid = handler.GetComponent<globalEvent>().mino_.stempel.valid;
+                    instansi.GetComponent<verify>().isCek=true;
+                }
+                break;
             case 1 ://voga
                 presentase=handler.GetComponent<globalEvent>().voga_.presentase=presentase;
                 openProp=handler.GetComponent<globalEvent>().voga_.conv;

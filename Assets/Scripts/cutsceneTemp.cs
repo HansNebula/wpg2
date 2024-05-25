@@ -10,7 +10,7 @@ public class cutsceneTemp : MonoBehaviour
     int id;
     void Start(){
         id=PlayerPrefs.GetInt("global_id");
-        waktu=2f;
+        waktu=3f;
         // GetComponent<globalEvent>().LoadData();
         // hitungMundur();
     }
