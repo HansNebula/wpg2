@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 public class MusicManager : MonoBehaviour
 {
     private static MusicManager instance;
-
+    AudioSource audioSource;
     void Awake()
     {
         // Ensure only one instance of MusicManager exists
@@ -19,6 +19,7 @@ public class MusicManager : MonoBehaviour
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         // Play music here (optional)
         PlayMusic();
     }
@@ -27,14 +28,14 @@ public class MusicManager : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
     if (currentScene.name == "MainMenu" || currentScene.name == "csChar" || currentScene.name == "ending")
     {
-        Destroy(gameObject);
+        // Destroy(gameObject);
+        audioSource.volume = 0;
     }
     }
 
     public void PlayMusic()
     {
         // Get the Audio Source component and play music
-        AudioSource audioSource = GetComponent<AudioSource>();
         if (audioSource != null && !audioSource.isPlaying)
         {
             audioSource.Play();

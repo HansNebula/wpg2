@@ -690,6 +690,7 @@ GameObject:
   m_Component:
   - component: {fileID: 113523336}
   - component: {fileID: 113523337}
+  - component: {fileID: 113523338}
   m_Layer: 0
   m_Name: BACK
   m_TagString: Untagged
@@ -761,6 +762,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &113523338
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113523335}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d7df3b7ada613aa49a1d13c64e87c01d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &148083845
 GameObject:
   m_ObjectHideFlags: 0
@@ -4728,6 +4748,7 @@ GameObject:
   m_Component:
   - component: {fileID: 705626529}
   - component: {fileID: 705626530}
+  - component: {fileID: 705626531}
   m_Layer: 0
   m_Name: INSPEKTOR_5
   m_TagString: Untagged
@@ -4800,6 +4821,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &705626531
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705626528}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 10eda8244dbf68d4f8ff3051e5976bd1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &727870887
 GameObject:
   m_ObjectHideFlags: 0
@@ -5043,7 +5083,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &745004440
 Transform:
   m_ObjectHideFlags: 0
@@ -9049,6 +9089,9 @@ MonoBehaviour:
   prop: {fileID: 705626528}
   n: 0
   m: 0
+  animBuku: {fileID: 0}
+  animBola: {fileID: 0}
+  animPeta: {fileID: 0}
 --- !u!1 &1466573205
 GameObject:
   m_ObjectHideFlags: 0

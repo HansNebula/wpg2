@@ -475,10 +475,9 @@ GameObject:
   - component: {fileID: 239709857}
   - component: {fileID: 239709858}
   - component: {fileID: 239709860}
-  - component: {fileID: 239709859}
   m_Layer: 5
   m_Name: Slider
-  m_TagString: Untagged
+  m_TagString: clickable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -554,7 +553,29 @@ MonoBehaviour:
   m_Value: 0.51
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 613822032}
+        m_MethodName: pickAudio
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 613822031}
+        m_MethodName: set_volume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &239709858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,19 +589,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: sound
---- !u!114 &239709859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 239709855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fe24df33ecdc3440acc95bdba883767, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  handler: {fileID: 0}
 --- !u!61 &239709860
 BoxCollider2D:
   m_ObjectHideFlags: 0

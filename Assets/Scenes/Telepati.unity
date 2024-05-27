@@ -1973,6 +1973,7 @@ GameObject:
   - component: {fileID: 765138918}
   - component: {fileID: 765138917}
   - component: {fileID: 765138920}
+  - component: {fileID: 765138921}
   m_Layer: 0
   m_Name: BACK
   m_TagString: clickable
@@ -2046,7 +2047,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -370.53232, y: 182.33974}
+  m_AnchoredPosition: {x: -366.9, y: 186.1}
   m_SizeDelta: {x: 1.85, y: 2.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &765138917
@@ -2166,6 +2167,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.85, y: 2.05}
   m_EdgeRadius: 0
+--- !u!95 &765138921
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765138914}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9c7f03acc522ae44f85ee2ae018e5545, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &794316952
 GameObject:
   m_ObjectHideFlags: 0
@@ -2935,11 +2955,14 @@ MonoBehaviour:
   nametag: {fileID: 183405489}
   dialogText: {fileID: 294239747}
   textKepala: {fileID: 0}
-  back: {fileID: 0}
+  back: {fileID: 765138914}
   pause: {fileID: 0}
   prop: {fileID: 0}
   n: 0
   m: 0
+  animBuku: {fileID: 0}
+  animBola: {fileID: 0}
+  animPeta: {fileID: 0}
 --- !u!1 &1345806978
 GameObject:
   m_ObjectHideFlags: 0

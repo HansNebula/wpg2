@@ -94,26 +94,27 @@ public class dialogTutor : MonoBehaviour
     };
 
     void Start(){
-        Scene currentScene=SceneManager.GetActiveScene();
-        nametag.text = "Aira Magisius";
-        dialogText.text = "";
-        isTalking=false;
-        dialogBox.SetActive(false);
-        print(currentScene.name);
-        m=0;
-        if(currentScene.name=="tutorial1"){
-            n=0;
-        }else if(currentScene.name=="kantor"){
-            n=10;
-        }else if(currentScene.name=="SceneMeja"){
-            n=20;
-        }else if(currentScene.name=="MejaSihir"){
-            n=30;
-        }else if(currentScene.name=="Telepati"){
-            n=40;
-            PlayerPrefs.SetInt("tele_d", 0);
+        if(PlayerPrefs.GetInt("global_id")==0){
+            Scene currentScene=SceneManager.GetActiveScene();
+            nametag.text = "Aira Magisius";
+            dialogText.text = "";
+            isTalking=false;
+            dialogBox.SetActive(false);
+            print(currentScene.name);
+            m=0;
+            if(currentScene.name=="tutorial1"){
+                n=0;
+            }else if(currentScene.name=="kantor"){
+                n=10;
+            }else if(currentScene.name=="SceneMeja"){
+                n=20;
+            }else if(currentScene.name=="MejaSihir"){
+                n=30;
+            }else if(currentScene.name=="Telepati"){
+                n=40;
+                PlayerPrefs.SetInt("tele_d", 0);
+            }
         }
-        
     }
     void Update(){
         // handler=GameObject.FindGameObjectWithTag("GameController");
@@ -126,6 +127,23 @@ public class dialogTutor : MonoBehaviour
         }else{
             this.enabled = false;
             dialogKepala.SetActive(false);
+        }
+    }
+
+    void forPropColl(){
+        var fs = GetComponent<forScroll>();
+        GameObject[] propComp = new GameObject[]{
+            fs.kop,
+            fs.latarBelakang,
+            fs.dana,
+            fs.instansi
+        };
+        for(int i=0;i<propComp.Length;i++){
+            if(PlayerPrefs.GetInt("tahap")<4){
+                propComp[i].GetComponent<Collider2D>().enabled = false;
+            }else{
+                propComp[i].GetComponent<Collider2D>().enabled = true;
+            }
         }
     }
 
@@ -188,6 +206,7 @@ public class dialogTutor : MonoBehaviour
                 }
                 break;
             case 20://meja inspeksi
+                forPropColl();
                 if(m==0){
                     dialogBox.SetActive(true);
                     StartCoroutine(TypeText(tahap2_mino[m], dialogText));
@@ -213,6 +232,8 @@ public class dialogTutor : MonoBehaviour
                         
                     }else if(m==1){
                         dialogKepala.SetActive(false);
+                        prop.GetComponent<Animator>().Play("prop");
+                        // prop.GetComponent<Animator>().Play("New State");
                         //animasi untuk buka proposal di sini
                     }else if(m==2){
                         dialogKepala.SetActive(true);
@@ -247,6 +268,7 @@ public class dialogTutor : MonoBehaviour
                 }
                 break;
             case 22:
+                back.GetComponent<Animator>().Play("Highlight");
                 PlayerPrefs.SetInt("tahap", 3);
                 break;
             case 29://instruksi untuk ke meja sihir
@@ -321,10 +343,13 @@ public class dialogTutor : MonoBehaviour
                 }
                 break;
             case 42: 
-                if(m<tahap3_teleEnd.Length+1){
+                if(m<tahap3_teleEnd.Length){
                     StartCoroutine(TypeText(tahap3_teleEnd[m-1], dialogText));
-                }else{
-
+                    if(m==2){
+                        back.GetComponent<Animator>().Play("Highlight");
+                    }
+                }else {
+                    back.GetComponent<Animator>().Play("Highlight");
                 }
                 break;
             case 49://di kantor menuju meja inspeksi
@@ -340,7 +365,7 @@ public class dialogTutor : MonoBehaviour
                 if(globalEvent.mino_.kop.sudah && globalEvent.mino_.lb.sudah && globalEvent.mino_.dana.sudah && globalEvent.mino_.stempel.sudah){
                     dialogKepala.SetActive(true);
                     handler.GetComponent<forScroll>().scroll.SetActive(false);
-                    if(PlayerPrefs.GetInt("tahap")!=5){
+                    if(PlayerPrefs.GetInt("tahap")==5){
                         m=0;
                         n=51;
                     }else if(PlayerPrefs.GetInt("tahap")==8){
