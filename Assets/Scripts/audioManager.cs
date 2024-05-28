@@ -13,6 +13,10 @@ public class audioManager : MonoBehaviour
     void Update(){
         PlayerPrefs.SetFloat(key,GetComponent<Slider>().value);
     }
+    public void storeVolume(){
+        PlayerPrefs.SetFloat(key, GetComponent<Slider>().value);
+        // PlayerPrefs.SetFloat("music", sfx.volume);
+    }
 
 
 }

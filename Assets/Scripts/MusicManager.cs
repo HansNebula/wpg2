@@ -20,6 +20,7 @@ public class MusicManager : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        audioSource.volume = PlayerPrefs.GetFloat("music");
         // Play music here (optional)
         PlayMusic();
     }
