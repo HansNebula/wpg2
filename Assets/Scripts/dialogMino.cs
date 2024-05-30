@@ -9,7 +9,7 @@ public class dialogMino : MonoBehaviour
     public Animator anim;
     public Text nametag, dialogText;
     public GameObject opsi1, opsi2;
-    string[] greetings=new string[]{
+    string[] greetings=new string[]{//nyoba
         "Saya Mino Taurinus, bendahara dari Redleaf Herbal Healt. kepentingan saya di sini adalah mengikuti peraturan baru raja yaitu mengajukan Scroll pengajuan dana proyek"
     };
     string[] kop=new string[]{
