@@ -19,10 +19,14 @@ public class interactRev : MonoBehaviour
 
     void processing(){
         if(isCollide && Input.GetKeyDown(KeyCode.E)){
-            if(type=="meja"){
-                SceneManager.LoadScene(dest);
+            if(dest=="Telepati" && PlayerPrefs.GetInt("tahap")<4){
+
             }else{
-                obj.SetActive(true);
+                if(type=="meja"){
+                    SceneManager.LoadScene(dest);
+                }else{
+                    obj.SetActive(true);
+                }
             }
         }
     }
