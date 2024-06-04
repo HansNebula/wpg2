@@ -169,6 +169,7 @@ public class dialogTutor : MonoBehaviour
                     StartCoroutine(TypeText(kantor[m], dialogText)); 
                     PlayerPrefs.SetInt("tahap", 2);
                 }else if(PlayerPrefs.GetInt("visited")==1){
+                    dialogBox.SetActive(false);
                     if(PlayerPrefs.GetInt("tahap")==3){
                         n=29;
                         m=3;
