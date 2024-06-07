@@ -2809,8 +2809,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -19.16394, y: 16.798096}
-  m_SizeDelta: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.18, y: 22.63}
+  m_SizeDelta: {x: 17.751505, y: 2.5643435}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &462415126
 MonoBehaviour:
@@ -2955,7 +2955,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -4781373940957465942, guid: 0af600dff4e264c4e876cdaf3bb4d48f,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2978,7 +2978,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.53614235, y: -0.26988697}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2989,7 +2989,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.48, y: 1.44}
+  m_Size: {x: 18.31498, y: 1.979774}
   m_EdgeRadius: 0
 --- !u!114 &462415131
 MonoBehaviour:
@@ -5092,8 +5092,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 745004439}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 20, z: -3848}
-  m_LocalScale: {x: 9.690956, y: 9.690956, z: 9.690956}
+  m_LocalPosition: {x: -3.2426, y: 5, z: -3848}
+  m_LocalScale: {x: 9.025017, y: 9.025017, z: 9.025017}
   m_Children:
   - {fileID: 462415125}
   - {fileID: 1254522263}
