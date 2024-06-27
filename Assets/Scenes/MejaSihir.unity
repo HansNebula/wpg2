@@ -12888,7 +12888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c974b0b149dfab54aa80b3217f444b65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tags: kristal frosglow
+  tags: kristal frostglow
 --- !u!212 &1515984979
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14605,7 +14605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c974b0b149dfab54aa80b3217f444b65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tags: batuan pyropius
+  tags: batuan pyrosius
 --- !u!1 &1751402252
 GameObject:
   m_ObjectHideFlags: 0
@@ -16868,7 +16868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c974b0b149dfab54aa80b3217f444b65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tags: Arcane Essence
+  tags: aracane essence
 --- !u!212 &1955709036
 SpriteRenderer:
   m_ObjectHideFlags: 0
