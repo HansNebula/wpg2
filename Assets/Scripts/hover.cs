@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class hover : MonoBehaviour
 {
    public GameObject opsi, label;
@@ -18,9 +18,13 @@ public class hover : MonoBehaviour
    }
 
    void OnMouseOver(){
-      label.SetActive(true);
-      if(!isCek)
-         opsi.SetActive(true);
+      Scene currentScene=SceneManager.GetActiveScene();
+      if(currentScene.name!="SceneMeja"){
+         label.SetActive(true);
+         if(!isCek){
+            opsi.SetActive(true);
+         }
+      }
    }
 
    void OnMouseExit(){
